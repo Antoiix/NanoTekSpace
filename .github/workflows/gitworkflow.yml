@@ -95,7 +95,6 @@ jobs:
           mkdir build && cd build
           cmake .. -DCMAKE_BUILD_TYPE=Debug
           make
-          make tests_run
           OUTPUT_TESTS="$(make tests_run)"
           echo "::notice::${OUTPUT_TESTS}"
 
