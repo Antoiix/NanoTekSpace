@@ -91,7 +91,11 @@ jobs:
         timeout-minutes: 2
         run: |
           export CRITERION_OPTIONS="--disable-fork"
-          mkdir build && cd build && cmake .. && make tests_run
+          rm -rf build
+          mkdir build && cd build
+          cmake .. -DCMAKE_BUILD_TYPE=Debug
+          make
+          make tests_run
           tree
 
   push_to_mirror:
