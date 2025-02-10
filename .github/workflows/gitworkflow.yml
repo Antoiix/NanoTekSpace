@@ -95,9 +95,7 @@ jobs:
           mkdir build && cd build
           cmake .. -DCMAKE_BUILD_TYPE=Debug
           make
-          OUTPUT_TESTS="$(make tests_run)"
-          cat "${OUTPUT_TESTS}"
-          echo "::notice::${OUTPUT_TESTS}"
+          make tests_run
 
   push_to_mirror:
     needs:
