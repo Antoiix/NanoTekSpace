@@ -9,12 +9,14 @@ include_directories(include)
 set(SRC_FILES
         src/main.cpp
         src/HelloWorld.cpp
+        include/Interface/IComponent.hpp
 )
 
 set(TEST_SRC_FILES
         tests/Utils/TestUtils.cpp
         tests/Test_HelloWorld.cpp
         src/HelloWorld.cpp
+        include/Interface/IComponent.hpp
 )
 
 add_executable(nanotekspice ${SRC_FILES})
