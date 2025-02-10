@@ -80,6 +80,8 @@ jobs:
       - set_current_url
     if: ${{ !contains(needs.set_current_url.outputs.current_url, github.repository) || !contains(github.repository, needs.set_current_url.outputs.current_url)}}
     runs-on: ubuntu-latest
+    container:
+      image: epitechcontent/epitest-docker
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -87,7 +89,9 @@ jobs:
           fetch-depth: 0
       - name: make tests_run
         timeout-minutes: 2
-        run: mkdir build && cd build && cmake .. && make tests_run
+        run: |
+          mkdir build && cd build && cmake .. && make tests_run
+          tree
 
   push_to_mirror:
     needs:
