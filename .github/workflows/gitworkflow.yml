@@ -79,9 +79,7 @@ jobs:
     needs:
       - set_current_url
     if: ${{ !contains(needs.set_current_url.outputs.current_url, github.repository) || !contains(github.repository, needs.set_current_url.outputs.current_url)}}
-    runs-on: ubuntu-latest
-    container:
-      image: epitechcontent/epitest-docker
+    runs-on: fedora-latest
     steps:
       - name: checkout
         uses: actions/checkout@v4
