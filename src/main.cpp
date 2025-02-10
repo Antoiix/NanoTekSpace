@@ -11,5 +11,5 @@
 
 int main(void)
 {
-    print_hello_world();
+    print_hello_world()
 }
