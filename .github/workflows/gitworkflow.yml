@@ -91,6 +91,7 @@ jobs:
         timeout-minutes: 2
         run: |
           export CRITERION_OPTIONS="--disable-fork"
+          env | grep CRITERION
           mkdir build && cd build && cmake .. && make && make tests_run
 
   push_to_mirror:
