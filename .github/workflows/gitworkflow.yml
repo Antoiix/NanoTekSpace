@@ -72,11 +72,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: make
-        timeout-minutes: 2
-        run: threeal/cmake-action@v2.1.0
-      - name: clean
-        run: make clean
       - name: checking
         run: mkdir build && cd build && cmake .. && make && cd "$EXECUTABLES" ../
 
