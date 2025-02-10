@@ -11,7 +11,7 @@ on:
 
 jobs:
   set_current_url:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     outputs:
       current_url: ${{ steps.set_current_url.outputs.current_url }}
     steps:
@@ -26,7 +26,7 @@ jobs:
   check_coding_style:
     needs: set_current_url
     if: ${{ !contains(needs.set_current_url.outputs.current_url, github.repository) || !contains(github.repository, needs.set_current_url.outputs.current_url)}}
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     container:
       image: ghcr.io/epitech/coding-style-checker:latest
     steps:
@@ -64,7 +64,7 @@ jobs:
     needs:
       - set_current_url
     if: ${{ !contains(needs.set_current_url.outputs.current_url, github.repository) || !contains(github.repository, needs.set_current_url.outputs.current_url)}}
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     container:
       image: epitechcontent/epitest-docker
     steps:
@@ -79,7 +79,7 @@ jobs:
     needs:
       - set_current_url
     if: ${{ !contains(needs.set_current_url.outputs.current_url, github.repository) || !contains(github.repository, needs.set_current_url.outputs.current_url)}}
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     container:
       image: epitechcontent/epitest-docker
     steps:
@@ -104,7 +104,7 @@ jobs:
       - check_coding_style
       - check_program_compilation
     if: ${{ !contains(needs.set_current_url.outputs.current_url, github.repository) || !contains(github.repository, needs.set_current_url.outputs.current_url) }} && ${{ github.event_name }} == 'push'
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - run: echo ${{ needs.set_current_url.outputs.current_url }}
       - run: echo ${{ github.repository }}
