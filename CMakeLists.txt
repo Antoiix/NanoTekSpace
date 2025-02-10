@@ -40,7 +40,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 add_custom_target(tests_run
-        COMMAND CRITERION_OPTIONS="--disable-fork" ./unit_tests
+        COMMAND ./unit_tests
         COMMAND gcovr -r .. --exclude 'src/main.cpp' --html --html-details -o coverage_report.html
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
         COMMAND gcovr -r ..
