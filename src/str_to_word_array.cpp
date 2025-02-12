@@ -5,7 +5,7 @@
 ** parsing.cpp
 */
 
-#include "../include/parsing.hpp"
+#include "str_to_word_array.hpp"
 
 bool is_delimiter(char c, const std::string &delimiter)
 {
