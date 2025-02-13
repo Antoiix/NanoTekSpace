@@ -7,7 +7,7 @@
 
 #include "Utils.hpp"
 
-static std::string Utils::getFileContent(const std::string& fileName)
+std::string Utils::getFileContent(const std::string& fileName)
 {
     std::ifstream f;
     std::stringstream ss;
