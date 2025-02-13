@@ -5,7 +5,7 @@
 #ifndef NANOTEKSPICE_PARSING_HPP
 #define NANOTEKSPICE_PARSING_HPP
 
-#include "str_to_word_array.hpp"
+#include "Utils.hpp"
 #include <algorithm>
 #include <cstdio>
 #include <cstring>

@@ -5,7 +5,7 @@
 ** parsing.cpp
 */
 
-#include "parsing.hpp"
+#include "Parsing.hpp"
 
 std::string remove_comment(const std::string& string)
 {
