@@ -16,4 +16,6 @@ enum TYPE {
     LINKS
 };
 
+void manage_parsing(const std::string& file_name);
+
 #endif //NANOTEKSPICE_PARSING_HPP

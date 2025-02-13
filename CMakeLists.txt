@@ -10,6 +10,10 @@ set(SRC_FILES
         src/main.cpp
         src/HelloWorld.cpp
         include/Interface/IComponent.hpp
+        src/Utils/StrToWordArray.cpp
+        src/Utils/GetFileContent.cpp
+        src/Utils/RemoveComment.cpp
+        src/Parsing.cpp
 )
 
 set(TEST_SRC_FILES
@@ -17,6 +21,9 @@ set(TEST_SRC_FILES
         tests/Test_HelloWorld.cpp
         src/HelloWorld.cpp
         include/Interface/IComponent.hpp
+        tests/TestStrToWordArray.cpp
+        src/Utils/RemoveComment.cpp
+        src/Parsing.cpp
 )
 
 add_executable(nanotekspice ${SRC_FILES})

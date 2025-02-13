@@ -7,24 +7,29 @@
 
 #include "Parsing.hpp"
 
-std::string remove_comment(const std::string& string)
+void chooseFunction(TYPE actual, std::list<std::string> word_array)
 {
-    size_t indice = string.find('#');
-    return string.substr(0, indice);
+    if (word_array.size() == 2 && actual != NOTHING) {
+        if (actual == LINKS)
+            return; //replace by links creator
+        if (actual == CHIPSET)
+            return; //replace by chipset factory
+    } else {
+        throw "INVALID FILE";
+    }
 }
 
-void manage_parsing(std::string file_name)
+void manage_parsing(const std::string& file_name)
 {
-    std::string buffer; //open file
-    std::list<std::string> line_array = my_str_to_word_array(buffer, "\n");
+    std::string buffer = Utils::getFileContent(file_name);
+    std::list<std::string> line_array = Utils::myStrToWordArray(buffer, "\n");
     std::list<std::string> temp_word_array;
-    std::list<void (*)()> function_list;
     TYPE actual = NOTHING;
 
-    std::for_each(line_array.begin(), line_array.end(), remove_comment);
+    std::for_each(line_array.begin(), line_array.end(), Utils::remove_comment);
 
     for (const auto& line: line_array) {
-        temp_word_array = my_str_to_word_array(line, " \t");
+        temp_word_array = Utils::myStrToWordArray(line, " \t");
 
         if (std::strcmp(temp_word_array.front().c_str(), ".chipset:") != 0) {
             actual = CHIPSET;
@@ -34,10 +39,6 @@ void manage_parsing(std::string file_name)
             actual = LINKS;
             continue;
         }
-
-        // exécute une fonction faisant partie d'une liste, choisi la fonction en fonction de l'ENUM actuel (CHIPSET / LINKS)
-
-        (*function_list.)(temp_word_array);
-
+        chooseFunction(actual, temp_word_array);
     }
 }
