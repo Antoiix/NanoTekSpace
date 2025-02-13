@@ -5,13 +5,14 @@
 ** ManageExecutionCommands.cpp
 */
 
-#include "../include/MAnageExecutionCommands.hpp"
+#include "MAnageExecutionCommands.hpp"
 
-bool loop = true;
+bool loopExitFlag = true;
 
-void signalHandler(int signum)
+static void signalHandler(int signum)
 {
-    loop = false;
+    (void)signum;
+    loopExitFlag = false;
 }
 
 void getExecutionCommands()
@@ -32,7 +33,7 @@ void getExecutionCommands()
         }
         if (buffer == "loop") {
             std::signal(SIGINT, signalHandler);
-            while (loop){
+            while (loopExitFlag){
                 // simulate command
             }
             // display command

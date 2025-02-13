@@ -3,10 +3,12 @@
 //
 
 #ifndef NANOTEKSPICE_MANAGEEXECUTIONCOMMANDS_HPP
-#define NANOTEKSPICE_MANAGEEXECUTIONCOMMANDS_HPP
+    #define NANOTEKSPICE_MANAGEEXECUTIONCOMMANDS_HPP
 
 #include <iostream>
 #include <cstring>
 #include <csignal>
+
+void getExecutionCommands();
 
 #endif //NANOTEKSPICE_MANAGEEXECUTIONCOMMANDS_HPP
