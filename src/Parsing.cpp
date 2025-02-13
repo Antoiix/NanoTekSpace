@@ -7,7 +7,7 @@
 
 #include "Parsing.hpp"
 
-void chooseFunction(TYPE actual, std::list<std::string> word_array)
+void chooseFunction(TYPE actual, const std::list<std::string>& word_array)
 {
     if (word_array.size() == 2 && actual != NOTHING) {
         if (actual == LINKS)
@@ -15,7 +15,7 @@ void chooseFunction(TYPE actual, std::list<std::string> word_array)
         if (actual == CHIPSET)
             return; //replace by chipset factory
     } else {
-        throw "INVALID FILE";
+        throw std::runtime_error("INVALID FILE");
     }
 }
 

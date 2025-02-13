@@ -16,7 +16,7 @@ std::string Utils::getFileContent(const std::string& fileName)
     if (f.is_open() && f.good())
         ss << f.rdbuf();
     else
-        throw "ERROR OF FILE";
+        throw std::runtime_error("ERROR OF FILE");
 
     std::string str = ss.str();
 
