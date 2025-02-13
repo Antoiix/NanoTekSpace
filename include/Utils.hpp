@@ -14,7 +14,7 @@
 namespace Utils {
     std::list<std::string> myStrToWordArray(const std::string &buffer, const std::string &delimiter);
     std::string getFileContent(const std::string& fileName);
-    std::string remove_comment(const std::string& string);
+    std::string removeComment(const std::string& string);
 }
 
 

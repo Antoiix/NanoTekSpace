@@ -58,33 +58,33 @@ Test(myStrToWordArray, multipleBeginEndSpaceTabCase)
     cr_assert_str_eq(util.End(), util.GetFileContent());
 }
 
-Test(remove_comment, justComment)
+Test(removeComment, justComment)
 {
-    TestUtils util("../tests/txt_for_Tests_Utils/remove_comment_justComment.txt");
+    TestUtils util("../tests/txt_for_Tests_Utils/removeComment_justComment.txt");
 
-    std::string string = Utils::remove_comment("# ceci est un commentaire qui doit disparaitre");
+    std::string string = Utils::removeComment("# ceci est un commentaire qui doit disparaitre");
 
     std::cout << string << std::endl;
 
     cr_assert_str_eq(util.End(), util.GetFileContent());
 }
 
-Test(remove_comment, commonCase)
+Test(removeComment, commonCase)
 {
-    TestUtils util("../tests/txt_for_Tests_Utils/remove_comment_commonCase.txt");
+    TestUtils util("../tests/txt_for_Tests_Utils/removeComment_commonCase.txt");
 
-    std::string string = Utils::remove_comment("ce texte doit etre gardé# ceci est un commentaire qui doit disparaitre");
+    std::string string = Utils::removeComment("ce texte doit etre gardé# ceci est un commentaire qui doit disparaitre");
 
     std::cout << string << std::endl;
 
     cr_assert_str_eq(util.End(), util.GetFileContent());
 }
 
-Test(remove_comment, emptyString)
+Test(removeComment, emptyString)
 {
-    TestUtils util("../tests/txt_for_Tests_Utils/remove_comment_justComment.txt");
+    TestUtils util("../tests/txt_for_Tests_Utils/removeComment_justComment.txt");
 
-    std::string string = Utils::remove_comment("");
+    std::string string = Utils::removeComment("");
 
     std::cout << string << std::endl;
 

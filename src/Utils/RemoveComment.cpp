@@ -7,7 +7,7 @@
 
 #include "Utils.hpp"
 
-std::string Utils::remove_comment(const std::string& string)
+std::string Utils::removeComment(const std::string& string)
 {
     size_t indice = string.find('#');
     return string.substr(0, indice);

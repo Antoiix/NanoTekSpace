@@ -26,7 +26,7 @@ void manage_parsing(const std::string& file_name)
     std::list<std::string> temp_word_array;
     TYPE actual = NOTHING;
 
-    std::for_each(line_array.begin(), line_array.end(), Utils::remove_comment);
+    std::for_each(line_array.begin(), line_array.end(), Utils::removeComment);
 
     for (const auto& line: line_array) {
         temp_word_array = Utils::myStrToWordArray(line, " \t");
