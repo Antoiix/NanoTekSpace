@@ -10,6 +10,7 @@ set(SRC_FILES
         src/main.cpp
         src/HelloWorld.cpp
         include/Interface/IComponent.hpp
+        src/ManageExecutionCommands.cpp
 )
 
 set(TEST_SRC_FILES
@@ -17,6 +18,7 @@ set(TEST_SRC_FILES
         tests/Test_HelloWorld.cpp
         src/HelloWorld.cpp
         include/Interface/IComponent.hpp
+        src/ManageExecutionCommands.cpp
 )
 
 add_executable(nanotekspice ${SRC_FILES})
