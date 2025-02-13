@@ -34,28 +34,30 @@ void getExecutionCommands()
     std::cout << "> ";
     while (std::getline(std::cin, buffer) && buffer != "exit") {
         if (buffer == "display") {
-            // call display to display all component
+            // display function
             std::cout << "> ";
             continue;
         }
         if (buffer == "simulate") {
-            // do one tick simulation
+            // simulate function
             std::cout << "> ";
             continue;
         }
         if (buffer == "loop") {
             std::signal(SIGINT, signalHandler);
             while (loopExitFlag){
-                // simulate command
+                // simulate function
             }
-            // display command
+            // display function
             std::cout << "> ";
             continue;
         }
         if (inputIsValid(buffer)) {
             // change input value
+            std::cout << "> ";
             continue;
         }
+        std::cout << "Invalid Command" << std::endl;
         std::cout << "> ";
     }
 }
