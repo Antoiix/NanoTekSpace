@@ -91,4 +91,14 @@ Test(removeComment, emptyString)
     cr_assert_str_eq(util.End(), util.GetFileContent());
 }
 
+Test(GetFileContent, commonCase)
+{
+    TestUtils util("../tests/txt_for_Tests_Utils/removeComment_justComment.txt");
+
+    std::string string = Utils::getFileContent("../tests/txt_for_Tests_Utils/removeComment_justComment.txt");
+
+    std::cout << string << std::endl;
+
+    cr_assert_str_eq(util.End(), util.GetFileContent());
+}
 
