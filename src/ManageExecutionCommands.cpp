@@ -15,6 +15,18 @@ static void signalHandler(int signum)
     loopExitFlag = false;
 }
 
+static bool inputIsValid(const std::string& buffer)
+{
+    std::list<std::string> word_array;
+
+    if (buffer.find('=') == std::string::npos)
+        return false;
+    word_array = myStrToWordArray(buffer, " "); //include it later
+    if (word_array.size() != 1)
+        return false;
+    return true;
+}
+
 void getExecutionCommands()
 {
     std::string buffer;
@@ -40,7 +52,10 @@ void getExecutionCommands()
             std::cout << "> ";
             continue;
         }
-        // test : '=' in buffer && 2 word && input exist && value == 0/1/U
+        if (inputIsValid(buffer)) {
+            // change input value
+            continue;
+        }
         std::cout << "> ";
     }
 }

@@ -8,6 +8,7 @@
 #include <iostream>
 #include <cstring>
 #include <csignal>
+#include <list>
 
 void getExecutionCommands();
 
