@@ -5,6 +5,7 @@
 #ifndef NANOTEKSPICE_MANAGEEXECUTIONCOMMANDS_HPP
     #define NANOTEKSPICE_MANAGEEXECUTIONCOMMANDS_HPP
 
+#include "Utils.hpp"
 #include <iostream>
 #include <cstring>
 #include <csignal>
