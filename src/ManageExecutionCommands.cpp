@@ -5,7 +5,14 @@
 ** ManageExecutionCommands.cpp
 */
 
-#include "MAnageExecutionCommands.hpp"
+#include "../include/MAnageExecutionCommands.hpp"
+
+bool loop = true;
+
+void signalHandler(int signum)
+{
+    loop = false;
+}
 
 void getExecutionCommands()
 {
@@ -15,16 +22,24 @@ void getExecutionCommands()
     while (std::getline(std::cin, buffer) && buffer != "exit") {
         if (buffer == "display") {
             // call display to display all component
+            std::cout << "> ";
             continue;
         }
         if (buffer == "simulate") {
             // do one tick simulation
+            std::cout << "> ";
             continue;
         }
         if (buffer == "loop") {
-            // do a loop while != CTRL + C
+            std::signal(SIGINT, signalHandler);
+            while (loop){
+                // simulate command
+            }
+            // display command
+            std::cout << "> ";
             continue;
         }
         // test : '=' in buffer && 2 word && input exist && value == 0/1/U
+        std::cout << "> ";
     }
 }

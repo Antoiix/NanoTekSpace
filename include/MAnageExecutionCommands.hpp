@@ -7,5 +7,6 @@
 
 #include <iostream>
 #include <cstring>
+#include <csignal>
 
 #endif //NANOTEKSPICE_MANAGEEXECUTIONCOMMANDS_HPP
