@@ -21,7 +21,7 @@ static bool inputIsValid(const std::string& buffer)
 
     if (buffer.find('=') == std::string::npos)
         return false;
-    word_array = Utils::myStrToWordArray(buffer, " "); //include it later
+    word_array = Utils::myStrToWordArray(buffer, " ");
     if (word_array.size() != 1)
         return false;
     return true;
