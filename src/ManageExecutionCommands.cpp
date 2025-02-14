@@ -7,7 +7,7 @@
 
 #include "MAnageExecutionCommands.hpp"
 
-bool loopExitFlag = true;
+bool loopExitFlag = false;
 
 static void signalHandler(int signum)
 {
@@ -45,6 +45,7 @@ void getExecutionCommands()
         }
         if (buffer == "loop") {
             std::signal(SIGINT, signalHandler);
+            loopExitFlag = true;
             while (loopExitFlag){
                 // simulate function
             }
