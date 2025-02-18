@@ -7,12 +7,10 @@
 
 #include "MAnageExecutionCommands.hpp"
 
-bool loopExitFlag = false;
-
 static void signalHandler(int signum)
 {
     (void)signum;
-    loopExitFlag = false;
+    Utils::loopExitFlag = false;
 }
 
 static bool inputIsValid(const std::string& buffer)
@@ -45,8 +43,8 @@ void getExecutionCommands()
         }
         if (buffer == "loop") {
             std::signal(SIGINT, signalHandler);
-            loopExitFlag = true;
-            while (loopExitFlag){
+            Utils::loopExitFlag = true;
+            while (Utils::loopExitFlag){
                 // simulate function
             }
             // display function

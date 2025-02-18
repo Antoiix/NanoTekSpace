@@ -12,6 +12,8 @@
 #include <string>
 
 namespace Utils {
+    bool loopExitFlag = false;
+
     std::list<std::string> myStrToWordArray(const std::string &buffer, const std::string &delimiter);
     std::string getFileContent(const std::string& fileName);
     std::string removeComment(const std::string& string);
