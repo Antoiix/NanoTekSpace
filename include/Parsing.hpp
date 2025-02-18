@@ -1,6 +1,9 @@
-//
-// Created by ktimote on 2/12/25.
-//
+/*
+** EPITECH PROJECT, 2025
+** NanoTekSpice
+** File description:
+** Parsing.hpp
+*/
 
 #ifndef NANOTEKSPICE_PARSING_HPP
 #define NANOTEKSPICE_PARSING_HPP

@@ -1,6 +1,9 @@
-//
-// Created by ktimote on 2/13/25.
-//
+/*
+** EPITECH PROJECT, 2025
+** NanoTekSpice
+** File description:
+** ManageExecutionCommands.hpp
+*/
 
 #ifndef NANOTEKSPICE_MANAGEEXECUTIONCOMMANDS_HPP
     #define NANOTEKSPICE_MANAGEEXECUTIONCOMMANDS_HPP
