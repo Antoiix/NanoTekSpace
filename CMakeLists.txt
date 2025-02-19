@@ -5,30 +5,24 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_FLAGS "-Wall -Wextra -Werror")
 
 include_directories(include)
+include_directories(include/Interface)
+include_directories(include/Abstract)
 
-set(SRC_FILES
+add_executable(nanotekspice
         src/main.cpp
         src/HelloWorld.cpp
-        include/Interface/IComponent.hpp
-)
+        src/Abstract/AComponent.cpp)
 
-set(TEST_SRC_FILES
+add_executable(unit_tests
         tests/Utils/TestUtils.cpp
         tests/Test_HelloWorld.cpp
         src/HelloWorld.cpp
-        include/Interface/IComponent.hpp
-)
-
-add_executable(nanotekspice ${SRC_FILES})
-
-add_executable(unit_tests ${TEST_SRC_FILES})
+        src/Abstract/AComponent.cpp)
 
 target_link_libraries(unit_tests criterion)
 
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    target_compile_options(unit_tests PRIVATE -fprofile-arcs -ftest-coverage)
-    target_link_options(unit_tests PRIVATE -fprofile-arcs -ftest-coverage)
-endif()
+target_compile_options(unit_tests PRIVATE -fprofile-arcs -ftest-coverage)
+target_link_options(unit_tests PRIVATE -fprofile-arcs -ftest-coverage)
 
 add_custom_target(tests_run
         COMMAND ./unit_tests
