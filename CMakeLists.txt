@@ -5,12 +5,12 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_FLAGS "-Wall -Wextra -Werror")
 
 include_directories(include)
+include_directories(include/Interface)
 
 set(SRC_FILES
         src/main.cpp
         src/HelloWorld.cpp
-        include/Interface/IComponent.hpp
-        src/ManageExecutionCommands.cpp
+        src/Shell.cpp
         src/Utils/StrToWordArray.cpp
         src/Utils/GetFileContent.cpp
         src/Utils/RemoveComment.cpp
@@ -21,11 +21,12 @@ set(TEST_SRC_FILES
         tests/Utils/TestUtils.cpp
         tests/Test_HelloWorld.cpp
         src/HelloWorld.cpp
-        include/Interface/IComponent.hpp
-        src/ManageExecutionCommands.cpp
-        src/Utils/RemoveComment.cpp
-        src/Parsing.cpp
         tests/Test_Utils.cpp
+        src/Utils/GetFileContent.cpp
+        src/Utils/RemoveComment.cpp
+        src/Utils/StrToWordArray.cpp
+        src/Parsing.cpp
+        src/Shell.cpp
 )
 
 add_executable(nanotekspice ${SRC_FILES})

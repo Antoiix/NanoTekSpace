@@ -64,7 +64,7 @@ Test(removeComment, justComment)
 
     std::string string = Utils::removeComment("# ceci est un commentaire qui doit disparaitre");
 
-    std::cout << string << std::endl;
+    std::cout << string;
 
     cr_assert_str_eq(util.End(), util.GetFileContent());
 }
@@ -75,7 +75,7 @@ Test(removeComment, commonCase)
 
     std::string string = Utils::removeComment("ce texte doit etre gardé# ceci est un commentaire qui doit disparaitre");
 
-    std::cout << string << std::endl;
+    std::cout << string;
 
     cr_assert_str_eq(util.End(), util.GetFileContent());
 }
@@ -86,7 +86,7 @@ Test(removeComment, emptyString)
 
     std::string string = Utils::removeComment("");
 
-    std::cout << string << std::endl;
+    std::cout << string;
 
     cr_assert_str_eq(util.End(), util.GetFileContent());
 }
@@ -97,7 +97,7 @@ Test(GetFileContent, commonCase)
 
     std::string string = Utils::getFileContent("../tests/txt_for_Tests_Utils/removeComment_justComment.txt");
 
-    std::cout << string << std::endl;
+    std::cout << string;
 
     cr_assert_str_eq(util.End(), util.GetFileContent());
 }
