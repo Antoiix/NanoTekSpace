@@ -14,6 +14,11 @@
 #include <csignal>
 #include <list>
 
-void getExecutionCommands();
+class shell {
+    public:
+    shell();
+    ~shell();
+    static void getExecutionCommands();
+};
 
 #endif //NANOTEKSPICE_MANAGEEXECUTIONCOMMANDS_HPP

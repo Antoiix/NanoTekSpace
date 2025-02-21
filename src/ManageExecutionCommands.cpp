@@ -25,7 +25,7 @@ static bool inputIsValid(const std::string& buffer)
     return true;
 }
 
-void getExecutionCommands()
+void shell::getExecutionCommands()
 {
     std::string buffer;
 
