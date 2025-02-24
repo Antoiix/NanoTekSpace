@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(NanoTekSpice)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-Wall -Wextra -Werror")
 
 include_directories(include)
@@ -11,13 +11,27 @@ include_directories(include/Abstract)
 add_executable(nanotekspice
         src/main.cpp
         src/HelloWorld.cpp
-        src/Abstract/AComponent.cpp)
+        src/Shell.cpp
+        src/Utils/StrToWordArray.cpp
+        src/Utils/GetFileContent.cpp
+        src/Utils/RemoveComment.cpp
+        src/Parsing.cpp
+        src/Abstract/AComponent.cpp
+)
 
 add_executable(unit_tests
         tests/Utils/TestUtils.cpp
         tests/Test_HelloWorld.cpp
         src/HelloWorld.cpp
-        src/Abstract/AComponent.cpp)
+        include/Interface/IComponent.hpp
+        tests/Test_Utils.cpp
+        src/Utils/GetFileContent.cpp
+        src/Utils/RemoveComment.cpp
+        src/Utils/StrToWordArray.cpp
+        src/Parsing.cpp
+        src/Shell.cpp
+        src/Abstract/AComponent.cpp
+)
 
 target_link_libraries(unit_tests criterion)
 
