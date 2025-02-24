@@ -2,11 +2,11 @@
 ** EPITECH PROJECT, 2025
 ** NanoTekSpice
 ** File description:
-** ManageExecutionCommands.hpp
+** Shell.hpp
 */
 
-#ifndef NANOTEKSPICE_MANAGEEXECUTIONCOMMANDS_HPP
-    #define NANOTEKSPICE_MANAGEEXECUTIONCOMMANDS_HPP
+#ifndef NANOTEKSPICE_SHELL_HPP
+    #define NANOTEKSPICE_SHELL_HPP
 
 #include "Utils.hpp"
 #include <iostream>
@@ -21,4 +21,4 @@ class shell {
     static void getExecutionCommands();
 };
 
-#endif //NANOTEKSPICE_MANAGEEXECUTIONCOMMANDS_HPP
+#endif //NANOTEKSPICE_SHELL_HPP
