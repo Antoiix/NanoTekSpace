@@ -20,7 +20,6 @@ add_executable(nanotekspice
         src/Abstract/AComponent.cpp
         src/Map.cpp
         src/Pin.cpp
-        include/Pin.hpp
         src/Components/AndComponent.cpp
         src/Components/FalseComponent.cpp
         src/Components/InputComponent.cpp
@@ -29,7 +28,6 @@ add_executable(nanotekspice
         src/Components/OutputComponent.cpp
         src/Components/TrueComponent.cpp
         src/Factory.cpp
-        src/Factory.hpp
 )
 
 add_executable(unit_tests
