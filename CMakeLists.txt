@@ -28,6 +28,8 @@ add_executable(nanotekspice
         src/Components/OutputComponent.cpp
         src/Components/TrueComponent.cpp
         src/Factory.cpp
+        src/Components/XorComponent.cpp
+        src/Components/XorComponent.hpp
 )
 
 add_executable(unit_tests
@@ -51,6 +53,8 @@ add_executable(unit_tests
         src/Components/OutputComponent.cpp
         src/Components/TrueComponent.cpp
         src/Factory.cpp
+        src/Components/XorComponent.cpp
+        src/Components/XorComponent.hpp
 )
 
 target_link_libraries(unit_tests criterion)

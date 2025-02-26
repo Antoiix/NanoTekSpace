@@ -8,17 +8,19 @@
 */
 
 #include "Factory.hpp"
-#include <AndComponent.hpp>
-#include <FalseComponent.hpp>
-#include <InputComponent.hpp>
-#include <NotComponent.hpp>
-#include <OrComponent.hpp>
-#include <OutputComponent.hpp>
-#include <TrueComponent.hpp>
+#include "AndComponent.hpp"
+#include "FalseComponent.hpp"
+#include "InputComponent.hpp"
+#include "NotComponent.hpp"
+#include "OrComponent.hpp"
+#include "OutputComponent.hpp"
+#include "TrueComponent.hpp"
+#include "XorComponent.hpp"
 
 nts::Factory::Factory()
 {
     componentBuilders["or"] = [](const std::string& name) {return std::make_shared<OrComponent>(name);};
+    componentBuilders["xor"] = [](const std::string& name) {return std::make_shared<XorComponent>(name);};
     componentBuilders["and"] = [](const std::string& name) {return std::make_shared<AndComponent>(name);};
     componentBuilders["not"] = [](const std::string& name) {return std::make_shared<NotComponent>(name);};
     componentBuilders["input"] = [](const std::string& name) {return std::make_shared<InputComponent>(name);};
