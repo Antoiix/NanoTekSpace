@@ -7,6 +7,7 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra -Werror")
 include_directories(include)
 include_directories(include/Interface)
 include_directories(include/Abstract)
+include_directories(include/Components)
 
 add_executable(nanotekspice
         src/main.cpp
@@ -17,6 +18,18 @@ add_executable(nanotekspice
         src/Utils/RemoveComment.cpp
         src/Parsing.cpp
         src/Abstract/AComponent.cpp
+        src/Map.cpp
+        src/Pin.cpp
+        include/Pin.hpp
+        src/Components/AndComponent.cpp
+        src/Components/FalseComponent.cpp
+        src/Components/InputComponent.cpp
+        src/Components/NotComponent.cpp
+        src/Components/OrComponent.cpp
+        src/Components/OutputComponent.cpp
+        src/Components/TrueComponent.cpp
+        src/Factory.cpp
+        src/Factory.hpp
 )
 
 add_executable(unit_tests

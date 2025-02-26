@@ -11,6 +11,10 @@
     #define ACOMPONENT_HPP
 
 #include <map>
+#include <Map.hpp>
+#include <Pin.hpp>
+#include <utility>
+#include <string>
 #include "IComponent.hpp"
 
 namespace nts
@@ -18,15 +22,19 @@ namespace nts
     class AComponent : public IComponent
     {
     public:
-        explicit AComponent(size_t nb_pins);
+        AComponent(size_t nb_pins, std::string name);
 
         void simulate(std::size_t tick) override;
-        void setLink(std::size_t pin, IComponent& other, std::size_t otherPin) override;
+        void setLink(std::size_t pin, const std::string& nameOther, std::size_t otherPin) override;
+        std::string getName() const override;
 
-        void getLink(std::size_t pin) const;
-    private:
-        std::map<size_t, std::pair<IComponent*, size_t>> _pins;
+        Tristate getLink(std::size_t pin, const Map &map) const;
+    protected:
+        std::string _name;
+        std::map<size_t, std::shared_ptr<Pin>> _pins;
     };
 }
+
+std::ostream& operator<<(std::ostream& s, nts::Tristate v);
 
 #endif //ACOMPONENT_HPP

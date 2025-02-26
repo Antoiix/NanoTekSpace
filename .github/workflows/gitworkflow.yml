@@ -93,7 +93,7 @@ jobs:
           export CRITERION_OPTIONS="--disable-fork"
           rm -rf build
           mkdir build && cd build
-          cmake .. -DCMAKE_BUILD_TYPE=Debug
+          cmake ..
           make
           make tests_run
 
