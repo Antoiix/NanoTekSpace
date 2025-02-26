@@ -22,6 +22,7 @@ public:
     Shell() = default;
     static void getExecutionCommands();
 
+    void addLink(const std::string& from, const std::string& to) const;
     void addComponent(const std::string &name, const std::string &component);
     std::shared_ptr<nts::IComponent> getComponent(const std::string &name) const;
     nts::Map components_map;

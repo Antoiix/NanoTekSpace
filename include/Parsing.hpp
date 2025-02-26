@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <cstring>
+#include <Shell.hpp>
 
 enum TYPE {
     NOTHING,
@@ -19,6 +20,6 @@ enum TYPE {
     LINKS
 };
 
-void manage_parsing(const std::string& file_name);
+Shell manage_parsing(Shell shell ,const std::string& file_name);
 
 #endif //NANOTEKSPICE_PARSING_HPP

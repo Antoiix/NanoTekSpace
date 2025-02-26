@@ -70,3 +70,11 @@ std::shared_ptr<nts::IComponent> Shell::getComponent(const std::string& name) co
 {
     return this->components_map.getComponent(name);
 }
+
+void Shell::addLink(const std::string& from, const std::string& to) const
+{
+    const std::list<std::string> fromWordArray = Utils::myStrToWordArray(from, ":");
+    const std::list<std::string> toWordArray = Utils::myStrToWordArray(to, ":");
+
+    this->getComponent(fromWordArray.front())->setLink(std::stoi(fromWordArray.back()),toWordArray.front(), std::stoi(toWordArray.back()));
+}
