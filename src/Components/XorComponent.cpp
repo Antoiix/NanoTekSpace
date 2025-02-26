@@ -22,9 +22,11 @@ nts::Tristate nts::XorComponent::compute(std::size_t pin, const Map& map)
     Tristate pin1 = this->_pins[1]->getState();
     Tristate pin2 = this->_pins[2]->getState();
 
-    if (pin1 == True || pin2 == True)
+    if (pin1 == True && pin2 == True)
         return False;
-    if (pin1 == False && pin2 == False)
+    if (pin1 == True || pin2 == True)
         return True;
+    if (pin1 == False && pin2 == False)
+        return False;
     return Undefined;
 }
