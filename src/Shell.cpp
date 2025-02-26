@@ -25,7 +25,7 @@ static bool inputIsValid(const std::string& buffer)
     return true;
 }
 
-void shell::getExecutionCommands()
+void Shell::getExecutionCommands()
 {
     std::string buffer;
 
@@ -59,4 +59,14 @@ void shell::getExecutionCommands()
         std::cout << "Invalid Command" << std::endl;
         std::cout << "> ";
     }
+}
+
+void Shell::addComponent(const std::string& name, const std::string& component)
+{
+    this->factory.CreateComponent(component, name, this->components_map);
+}
+
+std::shared_ptr<nts::IComponent> Shell::getComponent(const std::string& name) const
+{
+    return this->components_map.getComponent(name);
 }

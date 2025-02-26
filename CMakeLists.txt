@@ -6,8 +6,10 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra -Werror")
 
 include_directories(include)
 include_directories(include/Interface)
+include_directories(include/Abstract)
+include_directories(include/Components)
 
-set(SRC_FILES
+add_executable(nanotekspice
         src/main.cpp
         src/HelloWorld.cpp
         src/Shell.cpp
@@ -15,30 +17,39 @@ set(SRC_FILES
         src/Utils/GetFileContent.cpp
         src/Utils/RemoveComment.cpp
         src/Parsing.cpp
+        src/Abstract/AComponent.cpp
+        src/Map.cpp
+        src/Pin.cpp
+        include/Pin.hpp
+        src/Components/AndComponent.cpp
+        src/Components/FalseComponent.cpp
+        src/Components/InputComponent.cpp
+        src/Components/NotComponent.cpp
+        src/Components/OrComponent.cpp
+        src/Components/OutputComponent.cpp
+        src/Components/TrueComponent.cpp
+        src/Factory.cpp
+        src/Factory.hpp
 )
 
-set(TEST_SRC_FILES
+add_executable(unit_tests
         tests/Utils/TestUtils.cpp
         tests/Test_HelloWorld.cpp
         src/HelloWorld.cpp
+        include/Interface/IComponent.hpp
         tests/Test_Utils.cpp
         src/Utils/GetFileContent.cpp
         src/Utils/RemoveComment.cpp
         src/Utils/StrToWordArray.cpp
         src/Parsing.cpp
         src/Shell.cpp
+        src/Abstract/AComponent.cpp
 )
-
-add_executable(nanotekspice ${SRC_FILES})
-
-add_executable(unit_tests ${TEST_SRC_FILES})
 
 target_link_libraries(unit_tests criterion)
 
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    target_compile_options(unit_tests PRIVATE -fprofile-arcs -ftest-coverage)
-    target_link_options(unit_tests PRIVATE -fprofile-arcs -ftest-coverage)
-endif()
+target_compile_options(unit_tests PRIVATE -fprofile-arcs -ftest-coverage)
+target_link_options(unit_tests PRIVATE -fprofile-arcs -ftest-coverage)
 
 add_custom_target(tests_run
         COMMAND ./unit_tests
