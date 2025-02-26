@@ -13,7 +13,7 @@ nts::C4030Component::C4030Component(const std::string& name) : AComponent(14, na
 {
 }
 
-static nts::Tristate norGate(nts::Tristate pin1, nts::Tristate pin2)
+static nts::Tristate xorGate(nts::Tristate pin1, nts::Tristate pin2)
 {
     if (pin1 == nts::True && pin2 == nts::True)
         return nts::False;
@@ -37,13 +37,13 @@ nts::Tristate nts::C4030Component::compute(std::size_t pin, const Map& map)
     switch (pin)
     {
     case 3:
-        return norGate(this->_pins[1]->getState(), this->_pins[2]->getState());
+        return xorGate(this->_pins[1]->getState(), this->_pins[2]->getState());
     case 4:
-        return norGate(this->_pins[5]->getState(), this->_pins[6]->getState());
+        return xorGate(this->_pins[5]->getState(), this->_pins[6]->getState());
     case 10:
-        return norGate(this->_pins[8]->getState(), this->_pins[9]->getState());
+        return xorGate(this->_pins[8]->getState(), this->_pins[9]->getState());
     case 11:
-        return norGate(this->_pins[12]->getState(), this->_pins[13]->getState());
+        return xorGate(this->_pins[12]->getState(), this->_pins[13]->getState());
     default:
         return Undefined;
     }

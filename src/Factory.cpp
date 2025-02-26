@@ -9,11 +9,12 @@
 
 #include "Factory.hpp"
 
-#include "4030Component.hpp"
+#include "4001Component.hpp"
 #include "AndComponent.hpp"
 #include "FalseComponent.hpp"
 #include "InputComponent.hpp"
 #include "NotComponent.hpp"
+#include "4030Component.hpp"
 #include "OrComponent.hpp"
 #include "OutputComponent.hpp"
 #include "TrueComponent.hpp"
@@ -29,6 +30,7 @@ nts::Factory::Factory()
     componentBuilders["output"] = [](const std::string& name) {return std::make_shared<OutputComponent>(name);};
     componentBuilders["true"] = [](const std::string& name) {return std::make_shared<TrueComponent>(name);};
     componentBuilders["false"] = [](const std::string& name) {return std::make_shared<FalseComponent>(name);};
+    componentBuilders["4001"] = [](const std::string& name) {return std::make_shared<C4001Component>(name);};
     componentBuilders["4030"] = [](const std::string& name) {return std::make_shared<C4030Component>(name);};
 }
 
