@@ -37,6 +37,7 @@ add_executable(unit_tests
         tests/Test_XorComponent.cpp
         tests/Test_OrComponent.cpp
         tests/Test_AndComponent.cpp
+        tests/Test_NotComponent.cpp
         tests/Test_Utils.cpp
         src/HelloWorld.cpp
         src/Shell.cpp
