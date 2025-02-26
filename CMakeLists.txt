@@ -33,15 +33,24 @@ add_executable(nanotekspice
 add_executable(unit_tests
         tests/Utils/TestUtils.cpp
         tests/Test_HelloWorld.cpp
-        src/HelloWorld.cpp
-        include/Interface/IComponent.hpp
         tests/Test_Utils.cpp
+        src/HelloWorld.cpp
+        src/Shell.cpp
+        src/Utils/StrToWordArray.cpp
         src/Utils/GetFileContent.cpp
         src/Utils/RemoveComment.cpp
-        src/Utils/StrToWordArray.cpp
         src/Parsing.cpp
-        src/Shell.cpp
         src/Abstract/AComponent.cpp
+        src/Map.cpp
+        src/Pin.cpp
+        src/Components/AndComponent.cpp
+        src/Components/FalseComponent.cpp
+        src/Components/InputComponent.cpp
+        src/Components/NotComponent.cpp
+        src/Components/OrComponent.cpp
+        src/Components/OutputComponent.cpp
+        src/Components/TrueComponent.cpp
+        src/Factory.cpp
 )
 
 target_link_libraries(unit_tests criterion)
