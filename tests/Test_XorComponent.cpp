@@ -113,6 +113,27 @@ Test(xorComponent, test_true_undefined)
     cr_assert_str_eq(util.End(), util.GetFileContent());
 }
 
+Test(xorComponent, test_undefined_undefined)
+{
+    TestUtils util("../tests/UndefinedTristate.txt");
+
+    Shell shell;
+
+    shell.addComponent("input1", "input");
+    shell.addComponent("input2", "input");
+    shell.addComponent("true1", "true");
+    shell.addComponent("true2", "true");
+    shell.addComponent("false1", "false");
+    shell.addComponent("false2", "false");
+    shell.addComponent("comp1", "or");
+
+    shell.getComponent("comp1")->setLink(1, "input1", 1);
+    shell.getComponent("comp1")->setLink(2, "input2", 1);
+    std::cout << shell.getComponent("comp1")->compute(3, shell.components_map) << std::endl;
+
+    cr_assert_str_eq(util.End(), util.GetFileContent());
+}
+
 Test(xorComponent, test_wrong_pin)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
