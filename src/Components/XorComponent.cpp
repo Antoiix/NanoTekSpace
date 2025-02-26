@@ -24,9 +24,9 @@ nts::Tristate nts::XorComponent::compute(std::size_t pin, const Map& map)
 
     if (pin1 == True && pin2 == True)
         return False;
-    if (pin1 == True || pin2 == True)
-        return True;
+    if (pin1 == Undefined || pin2 == Undefined)
+        return Undefined;
     if (pin1 == False && pin2 == False)
         return False;
-    return Undefined;
+    return True;
 }
