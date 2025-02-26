@@ -15,13 +15,22 @@ void chooseFunction(TYPE actual, const std::list<std::string>& word_array)
         if (actual == CHIPSET)
             return; //replace by chipset factory
     } else {
-        throw std::runtime_error("INVALID FILE");
+        throw InvalidFileException();
     }
 }
 
 void manage_parsing(const std::string& file_name)
 {
-    std::string buffer = Utils::getFileContent(file_name);
+    std::string buffer;
+    try
+    {
+        buffer = Utils::getFileContent(file_name);
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+        return;
+    }
     std::list<std::string> line_array = Utils::myStrToWordArray(buffer, "\n");
     std::list<std::string> temp_word_array;
     TYPE actual = NOTHING;
@@ -39,6 +48,13 @@ void manage_parsing(const std::string& file_name)
             actual = LINKS;
             continue;
         }
-        chooseFunction(actual, temp_word_array);
+        try
+        {
+            chooseFunction(actual, temp_word_array);
+        }
+        catch (const std::exception& e)
+        {
+            std::cerr << e.what() << std::endl;
+        }
     }
 }
