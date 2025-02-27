@@ -32,6 +32,8 @@ add_executable(nanotekspice
         src/Components/4030Component.cpp
         src/Components/4001Component.cpp
         src/Components/4071Component.cpp
+        src/Components/4081Component.cpp
+        src/Components/4011Component.cpp
 )
 
 add_executable(unit_tests
@@ -41,9 +43,11 @@ add_executable(unit_tests
         tests/Test_OrComponent.cpp
         tests/Test_AndComponent.cpp
         tests/Test_NotComponent.cpp
-        tests/Test_4030Component.cpp
         tests/Test_4001Component.cpp
+        tests/Test_4011Component.cpp
+        tests/Test_4030Component.cpp
         tests/Test_4071Component.cpp
+        tests/Test_4081Component.cpp
         tests/Test_Utils.cpp
         src/HelloWorld.cpp
         src/Shell.cpp
@@ -66,6 +70,8 @@ add_executable(unit_tests
         src/Components/4030Component.cpp
         src/Components/4001Component.cpp
         src/Components/4071Component.cpp
+        src/Components/4081Component.cpp
+        src/Components/4011Component.cpp
 )
 
 target_link_libraries(unit_tests criterion)
