@@ -22,6 +22,7 @@ static bool inputIsValid(const std::string& buffer)
     word_array = Utils::myStrToWordArray(buffer, " ");
     if (word_array.size() != 1)
         return false;
+    // function to change input
     return true;
 }
 
@@ -53,7 +54,7 @@ void Shell::getExecutionCommands()
             continue;
         }
         if (inputIsValid(buffer)) {
-            // change input value
+            std::cout << "change input" << std::endl;
             std::cout << "> ";
             continue;
         }
