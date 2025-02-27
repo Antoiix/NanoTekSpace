@@ -18,7 +18,6 @@ int main(void)
 
     shell = manage_parsing(shell, "../test");
 
-    std::cout << shell.getComponent("and1")->compute(3, shell.components_map) << std::endl;
-
+    Shell::getExecutionCommands();
     print_hello_world();
 }

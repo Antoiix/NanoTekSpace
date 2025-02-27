@@ -32,22 +32,23 @@ void Shell::getExecutionCommands()
     std::cout << "> ";
     while (std::getline(std::cin, buffer) && buffer != "exit") {
         if (buffer == "display") {
-            // display function
+            std::cout << "display" << std::endl;
             std::cout << "> ";
             continue;
         }
         if (buffer == "simulate") {
-            // simulate function
+            std::cout << "simulate" << std::endl;
             std::cout << "> ";
             continue;
         }
         if (buffer == "loop") {
+            std::cout << "loop" << std::endl;
             std::signal(SIGINT, signalHandler);
             Utils::loopExitFlag = true;
             while (Utils::loopExitFlag){
                 // simulate function
             }
-            // display function
+            std::cout << "display" << std::endl;
             std::cout << "> ";
             continue;
         }
