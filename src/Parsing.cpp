@@ -7,30 +7,23 @@
 
 #include "Parsing.hpp"
 
-void chooseFunction(TYPE actual, const std::list<std::string>& word_array)
+Shell chooseFunction(Shell shell, TYPE actual, const std::list<std::string>& word_array)
 {
+    printf("front: %s, back: %s\n", word_array.front().c_str(), word_array.back().c_str());
     if (word_array.size() == 2 && actual != NOTHING) {
         if (actual == LINKS)
-            return; //replace by links creator
+            shell.addLink(word_array.front(), word_array.back());
         if (actual == CHIPSET)
-            return; //replace by chipset factory
+            shell.addComponent(word_array.back(), word_array.front());
     } else {
-        throw InvalidFileException();
+        throw std::runtime_error("INVALID FILE");
     }
+    return shell;
 }
 
-void manage_parsing(const std::string& file_name)
+Shell manage_parsing(Shell shell ,const std::string& file_name)
 {
-    std::string buffer;
-    try
-    {
-        buffer = Utils::getFileContent(file_name);
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-        return;
-    }
+    std::string buffer = Utils::getFileContent(file_name);
     std::list<std::string> line_array = Utils::myStrToWordArray(buffer, "\n");
     std::list<std::string> temp_word_array;
     TYPE actual = NOTHING;
@@ -40,21 +33,15 @@ void manage_parsing(const std::string& file_name)
     for (const auto& line: line_array) {
         temp_word_array = Utils::myStrToWordArray(line, " \t");
 
-        if (std::strcmp(temp_word_array.front().c_str(), ".chipset:") != 0) {
+        if (std::strcmp(temp_word_array.front().c_str(), ".chipsets:") == 0) {
             actual = CHIPSET;
             continue;
         }
-        if (std::strcmp(temp_word_array.front().c_str(), ".links:") != 0) {
+        if (std::strcmp(temp_word_array.front().c_str(), ".links:") == 0) {
             actual = LINKS;
             continue;
         }
-        try
-        {
-            chooseFunction(actual, temp_word_array);
-        }
-        catch (const std::exception& e)
-        {
-            std::cerr << e.what() << std::endl;
-        }
+        shell = chooseFunction(shell, actual, temp_word_array);
     }
+    return shell;
 }

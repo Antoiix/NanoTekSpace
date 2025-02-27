@@ -22,6 +22,7 @@ static bool inputIsValid(const std::string& buffer)
     word_array = Utils::myStrToWordArray(buffer, " ");
     if (word_array.size() != 1)
         return false;
+    // function to change input
     return true;
 }
 
@@ -32,27 +33,28 @@ void Shell::getExecutionCommands()
     std::cout << "> ";
     while (std::getline(std::cin, buffer) && buffer != "exit") {
         if (buffer == "display") {
-            // display function
+            std::cout << "display" << std::endl;
             std::cout << "> ";
             continue;
         }
         if (buffer == "simulate") {
-            // simulate function
+            std::cout << "simulate" << std::endl;
             std::cout << "> ";
             continue;
         }
         if (buffer == "loop") {
+            std::cout << "loop" << std::endl;
             std::signal(SIGINT, signalHandler);
             Utils::loopExitFlag = true;
             while (Utils::loopExitFlag){
                 // simulate function
             }
-            // display function
+            std::cout << "display" << std::endl;
             std::cout << "> ";
             continue;
         }
         if (inputIsValid(buffer)) {
-            // change input value
+            std::cout << "change input" << std::endl;
             std::cout << "> ";
             continue;
         }
@@ -69,4 +71,12 @@ void Shell::addComponent(const std::string& name, const std::string& component)
 std::shared_ptr<nts::IComponent> Shell::getComponent(const std::string& name) const
 {
     return this->components_map.getComponent(name);
+}
+
+void Shell::addLink(const std::string& from, const std::string& to) const
+{
+    const std::list<std::string> fromWordArray = Utils::myStrToWordArray(from, ":");
+    const std::list<std::string> toWordArray = Utils::myStrToWordArray(to, ":");
+
+    this->getComponent(fromWordArray.front())->setLink(std::stoi(fromWordArray.back()),toWordArray.front(), std::stoi(toWordArray.back()));
 }
