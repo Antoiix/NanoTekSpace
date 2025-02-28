@@ -15,7 +15,7 @@
 
 Test(C4001Component, test_false_false_gate1)
 {
-    TestUtils util("../tests/FalseTristate.txt");
+    TestUtils util("../tests/TrueTristate.txt");
 
     Shell shell;
 
