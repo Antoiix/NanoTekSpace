@@ -29,7 +29,6 @@ namespace nts
     public:
         virtual ~IComponent() = default;
 
-        virtual std::string getName() const = 0;
         virtual void simulate(std::size_t tick) = 0;
         virtual nts::Tristate compute(std::size_t pin, const Map& map) = 0;
         virtual void setLink(std::size_t pin, const std::string &nameOther, std::size_t otherPin) = 0;

@@ -35,11 +35,6 @@ nts::Tristate nts::AComponent::getLink(std::size_t pin, const Map& map) const
     return Tristate::Undefined;
 }
 
-std::string nts::AComponent::getName() const
-{
-    return this->_name;
-}
-
 std::ostream& operator<<(std::ostream& os, nts::Tristate v)
 {
     if (v == nts::Tristate::True)
