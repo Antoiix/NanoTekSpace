@@ -35,7 +35,6 @@ add_executable(nanotekspice
         src/Components/4081Component.cpp
         src/Components/4011Component.cpp
         src/Components/4069Component.cpp
-        src/Components/4069Component.hpp
 )
 
 add_executable(unit_tests
@@ -76,7 +75,6 @@ add_executable(unit_tests
         src/Components/4081Component.cpp
         src/Components/4011Component.cpp
         src/Components/4069Component.cpp
-        src/Components/4069Component.hpp
 )
 
 target_link_libraries(unit_tests criterion)
