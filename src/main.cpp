@@ -12,11 +12,16 @@
 
 #include "HelloWorld.hpp"
 
-int main(void)
+int main(int ac, char **argv)
 {
+    if (ac != 2)
+    {
+        std::cerr << "Invalid number of arguments." << std::endl;
+        return 84;
+    }
     Shell shell;
 
-    shell = manage_parsing(shell, "../test");
+    shell = manage_parsing(shell, argv[1]);
 
     shell.getExecutionCommands();
     print_hello_world();
