@@ -9,7 +9,6 @@
 
 Shell chooseFunction(Shell shell, TYPE actual, const std::list<std::string>& word_array)
 {
-    printf("front: %s, back: %s\n", word_array.front().c_str(), word_array.back().c_str());
     if (word_array.size() == 2 && actual != NOTHING) {
         if (actual == LINKS)
             shell.addLink(word_array.front(), word_array.back());

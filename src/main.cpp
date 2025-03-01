@@ -24,5 +24,4 @@ int main(int ac, char **argv)
     shell = manage_parsing(shell, argv[1]);
 
     shell.getExecutionCommands();
-    print_hello_world();
 }

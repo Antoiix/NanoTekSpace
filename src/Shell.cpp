@@ -50,11 +50,10 @@ void Shell::getExecutionCommands()
     }
     this->setOutputString(firstSs.str());
 
-    std::cout << "> ";
     while (std::getline(std::cin, buffer) && buffer != "exit") {
+        std::cout << "> ";
         if (buffer == "display") {
             std::cout << this->getOutputString();
-            std::cout << "> ";
             continue;
         }
         if (buffer == "simulate") {
@@ -78,7 +77,6 @@ void Shell::getExecutionCommands()
                 ss << "\t" << currentOutput << ": " << tmpOutput->compute(1, this->components_map) << std::endl;
             }
             this->setOutputString(ss.str());
-            std::cout << "> ";
             continue;
         }
         if (buffer == "loop") {
@@ -89,16 +87,13 @@ void Shell::getExecutionCommands()
                 // simulate function
             }
             std::cout << "display" << std::endl;
-            std::cout << "> ";
             continue;
         }
         if (inputIsValid(buffer)) {
             std::cout << "change input" << std::endl;
-            std::cout << "> ";
             continue;
         }
         std::cout << "Invalid Command" << std::endl;
-        std::cout << "> ";
     }
 }
 
