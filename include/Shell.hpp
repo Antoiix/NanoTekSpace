@@ -20,14 +20,21 @@ class Shell
 {
 public:
     Shell() = default;
-    static void getExecutionCommands();
+    void getExecutionCommands();
 
     void addLink(const std::string& from, const std::string& to) const;
     void addComponent(const std::string &name, const std::string &component);
     std::shared_ptr<nts::IComponent> getComponent(const std::string &name) const;
     nts::Map components_map;
+    void addInput(const std::string &input);
+    void addOutput(const std::string &output);
+    void setOutputString(const std::string &output);
+    std::string getOutputString() const;
 
 private:
+    std::string outputString;
+    std::list<std::string> listInputs;
+    std::list<std::string> listOutputs;
     nts::Factory factory;
 };
 

@@ -29,16 +29,55 @@ static bool inputIsValid(const std::string& buffer)
 void Shell::getExecutionCommands()
 {
     std::string buffer;
+    std::stringstream firstSs;
+
+    firstSs << "tick: " << this->components_map.getTick() << std::endl;
+    firstSs << "input(s):" << std::endl;
+    for (const auto& currentInput : this->listInputs)
+    {
+        auto tmpInput = this->components_map.getComponent(currentInput);
+        if (tmpInput == nullptr)
+            continue;
+        firstSs << "\t" << currentInput << ": " << tmpInput->compute(1, this->components_map) << std::endl;
+    }
+    firstSs << "output(s):" << std::endl;
+    for (const auto& currentOutput : this->listOutputs)
+    {
+        auto tmpOutput = this->components_map.getComponent(currentOutput);
+        if (tmpOutput == nullptr)
+            continue;
+        firstSs << "\t" << currentOutput << ": " << tmpOutput->compute(1, this->components_map) << std::endl;
+    }
+    this->setOutputString(firstSs.str());
 
     std::cout << "> ";
     while (std::getline(std::cin, buffer) && buffer != "exit") {
         if (buffer == "display") {
-            std::cout << "display" << std::endl;
+            std::cout << this->getOutputString();
             std::cout << "> ";
             continue;
         }
         if (buffer == "simulate") {
-            std::cout << "simulate" << std::endl;
+            std::stringstream ss;
+            this->components_map.incrementTick();
+            ss << "tick: " << this->components_map.getTick() << std::endl;
+            ss << "input(s):" << std::endl;
+            for (const auto& currentInput : this->listInputs)
+            {
+                auto tmpInput = this->components_map.getComponent(currentInput);
+                if (tmpInput == nullptr)
+                    continue;
+                ss << "\t" << currentInput << ": " << tmpInput->compute(1, this->components_map) << std::endl;
+            }
+            ss << "output(s):" << std::endl;
+            for (const auto& currentOutput : this->listOutputs)
+            {
+                auto tmpOutput = this->components_map.getComponent(currentOutput);
+                if (tmpOutput == nullptr)
+                    continue;
+                ss << "\t" << currentOutput << ": " << tmpOutput->compute(1, this->components_map) << std::endl;
+            }
+            this->setOutputString(ss.str());
             std::cout << "> ";
             continue;
         }
@@ -79,4 +118,27 @@ void Shell::addLink(const std::string& from, const std::string& to) const
     const std::list<std::string> toWordArray = Utils::myStrToWordArray(to, ":");
 
     this->getComponent(fromWordArray.front())->setLink(std::stoi(fromWordArray.back()),toWordArray.front(), std::stoi(toWordArray.back()));
+    int i = 1;
+    i = i;
+}
+
+void Shell::addInput(const std::string& input)
+{
+    this->listInputs.push_back(input);
+}
+
+void Shell::addOutput(const std::string& output)
+{
+    this->listOutputs.push_back(output);
+}
+
+std::string Shell::getOutputString() const
+{
+    return this->outputString;
+}
+
+void Shell::setOutputString(const std::string& output)
+{
+    this->outputString.clear();
+    this->outputString = output;
 }

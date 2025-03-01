@@ -21,3 +21,13 @@ std::shared_ptr<nts::IComponent> nts::Map::getComponent(const std::string& name)
         return nullptr;
     return it->second;
 }
+
+size_t nts::Map::getTick() const
+{
+    return this->tick;
+}
+
+void nts::Map::incrementTick()
+{
+    this->tick++;
+}

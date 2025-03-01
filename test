@@ -3,7 +3,9 @@ true true1
 true true2
 false false1
 and and1
+output out1
 
 .links:
 and1:1 true1:1
 and1:2 true2:1
+out1:1 and1:3

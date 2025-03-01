@@ -14,7 +14,13 @@ Shell chooseFunction(Shell shell, TYPE actual, const std::list<std::string>& wor
         if (actual == LINKS)
             shell.addLink(word_array.front(), word_array.back());
         if (actual == CHIPSET)
+        {
             shell.addComponent(word_array.back(), word_array.front());
+            if (word_array.front() == "input" || word_array.front() == "true" || word_array.front() == "false" || word_array.front() == "clock")
+                shell.addInput(word_array.back());
+            if (word_array.front() == "output")
+                shell.addOutput(word_array.back());
+        }
     } else {
         throw std::runtime_error("INVALID FILE");
     }

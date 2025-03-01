@@ -18,6 +18,6 @@ int main(void)
 
     shell = manage_parsing(shell, "../test");
 
-    Shell::getExecutionCommands();
+    shell.getExecutionCommands();
     print_hello_world();
 }

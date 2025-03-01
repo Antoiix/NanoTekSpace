@@ -24,7 +24,10 @@ namespace nts
 
         void addComponent(const std::string& name, const std::shared_ptr<IComponent>& component);
         std::shared_ptr<IComponent> getComponent(const std::string& name) const;
+        void incrementTick();
+        size_t getTick() const;
     private:
+        size_t tick;
         std::map<std::string, std::shared_ptr<IComponent>> map_components;
     };
 }
