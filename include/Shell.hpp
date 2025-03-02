@@ -30,6 +30,7 @@ public:
     void addOutput(const std::string &output);
     void setOutputString(const std::string &output);
     std::string getOutputString() const;
+    bool inputIsValid(const std::string& buffer) const;
 
 private:
     std::string outputString;

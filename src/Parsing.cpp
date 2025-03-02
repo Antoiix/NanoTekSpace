@@ -14,6 +14,8 @@ Shell chooseFunction(Shell shell, TYPE actual, const std::list<std::string>& wor
             shell.addLink(word_array.front(), word_array.back());
         if (actual == CHIPSET)
         {
+            if (shell.getComponent(word_array.back()) != nullptr)
+                throw "name already used"; // put real error
             shell.addComponent(word_array.back(), word_array.front());
             if (word_array.front() == "input" || word_array.front() == "true" || word_array.front() == "false" || word_array.front() == "clock")
                 shell.addInput(word_array.back());
