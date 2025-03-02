@@ -13,17 +13,18 @@ static void signalHandler(int signum)
     Utils::loopExitFlag = false;
 }
 
-static bool inputIsValid(const std::string& buffer)
+bool Shell::inputIsValid(const std::string& buffer) const
 {
-    std::list<std::string> word_array;
+    std::list<std::string> word_array = Utils::myStrToWordArray(buffer, "=");
 
-    if (buffer.find('=') == std::string::npos)
-        return false;
-    word_array = Utils::myStrToWordArray(buffer, " ");
-    if (word_array.size() != 1)
-        return false;
-    // function to change input
-    return true;
+    if (buffer.find(' ') == std::string::npos &&
+        buffer.find('\t') == std::string::npos &&
+        word_array.size() == 2 &&
+        buffer.find('=') == buffer.rfind('=') &&
+        this->getComponent(word_array.front()) != nullptr &&
+        (atoi(word_array.back().c_str()) == 0 || atoi(word_array.back().c_str()) == 1))
+        return true;
+    return false;
 }
 
 void Shell::getExecutionCommands()
@@ -110,7 +111,7 @@ void Shell::getExecutionCommands()
             std::cout << "> ";
             continue;
         }
-        if (inputIsValid(buffer)) {
+        if (this->inputIsValid(buffer)) {
             std::cout << "change input" << std::endl;
             std::cout << "> ";
             continue;
