@@ -20,6 +20,7 @@ namespace nts
         explicit InputComponent(std::string name);
 
         nts::Tristate compute(std::size_t pin, const Map& map) override;
+        void changePinState(std::size_t pin, Tristate newState) override;
     };
 }
 

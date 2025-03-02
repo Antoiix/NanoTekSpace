@@ -15,6 +15,7 @@
 #include <Factory.hpp>
 #include <list>
 #include <Map.hpp>
+#include "AComponent.hpp"
 
 class Shell
 {
