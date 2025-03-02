@@ -136,6 +136,10 @@ void Shell::addLink(const std::string& from, const std::string& to) const
     const std::list<std::string> fromWordArray = Utils::myStrToWordArray(from, ":");
     const std::list<std::string> toWordArray = Utils::myStrToWordArray(to, ":");
 
+    if (getComponent(fromWordArray.front()) == nullptr)
+        throw "don't exist"; // put real error
+    if (getComponent(toWordArray.front()) == nullptr)
+        throw "don't exist"; // put real error
     this->getComponent(fromWordArray.front())->setLink(std::stoi(fromWordArray.back()),toWordArray.front(), std::stoi(toWordArray.back()));
     int i = 1;
     i = i;
