@@ -20,3 +20,9 @@ nts::Tristate nts::InputComponent::compute(std::size_t pin, const Map &map)
     (void)pin;
     return this->_pins[pin]->getState();
 }
+
+void nts::InputComponent::changePinState(std::size_t pin, Tristate newState)
+{
+    if (const auto tmpPin = this->_pins.at(pin))
+        tmpPin->setState(newState);
+}

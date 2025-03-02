@@ -22,8 +22,19 @@ bool Shell::inputIsValid(const std::string& buffer) const
         word_array.size() == 2 &&
         buffer.find('=') == buffer.rfind('=') &&
         this->getComponent(word_array.front()) != nullptr &&
-        (atoi(word_array.back().c_str()) == 0 || atoi(word_array.back().c_str()) == 1))
+        (atoi(word_array.back().c_str()) == 0 || atoi(word_array.back().c_str()) == 1 || (word_array.back() == "U")))
+    {
+        if (word_array.back() == "U")
+        {
+            this->getComponent(word_array.front())->changePinState(1, nts::Undefined);
+            return true;
+        }
+        if (atoi(word_array.back().c_str()) == 1)
+            this->getComponent(word_array.front())->changePinState(1, nts::True);
+        if (atoi(word_array.back().c_str()) == 0)
+            this->getComponent(word_array.front())->changePinState(1, nts::False);
         return true;
+    }
     return false;
 }
 
@@ -112,7 +123,6 @@ void Shell::getExecutionCommands()
             continue;
         }
         if (this->inputIsValid(buffer)) {
-            std::cout << "change input" << std::endl;
             std::cout << "> ";
             continue;
         }

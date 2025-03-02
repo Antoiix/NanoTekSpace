@@ -35,6 +35,13 @@ nts::Tristate nts::AComponent::getLink(std::size_t pin, const Map& map) const
     return Tristate::Undefined;
 }
 
+void nts::AComponent::changePinState(std::size_t pin, Tristate newState)
+{
+    (void)pin;
+    (void)newState;
+}
+
+
 std::ostream& operator<<(std::ostream& os, nts::Tristate v)
 {
     if (v == nts::Tristate::True)
@@ -42,6 +49,6 @@ std::ostream& operator<<(std::ostream& os, nts::Tristate v)
     if (v == nts::Tristate::False)
         os << std::to_string(0);
     if (v == nts::Tristate::Undefined)
-        os << std::to_string(-1);
+        os << std::string("U");
     return os;
 }
