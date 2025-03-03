@@ -17,7 +17,7 @@ nts::Shell chooseFunction(nts::Shell shell, TYPE actual, const std::list<std::st
             if (shell.getComponent(word_array.back()) != nullptr)
                 throw NameAlreadyUsed();
             shell.addComponent(word_array.back(), word_array.front());
-            if (word_array.front() == "input" || word_array.front() == "true" || word_array.front() == "false" || word_array.front() == "clock")
+            if (word_array.front() == "input" || word_array.front() == "clock")
                 shell.addInput(word_array.back());
             if (word_array.front() == "output")
                 shell.addOutput(word_array.back());
