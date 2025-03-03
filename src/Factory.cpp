@@ -23,9 +23,11 @@
 #include "OutputComponent.hpp"
 #include "TrueComponent.hpp"
 #include "XorComponent.hpp"
+#include "ClockComponent.hpp"
 
 nts::Factory::Factory()
 {
+    componentBuilders["clock"] = [](const std::string& name) {return std::make_shared<ClockComponent>(name);};
     componentBuilders["or"] = [](const std::string& name) {return std::make_shared<OrComponent>(name);};
     componentBuilders["xor"] = [](const std::string& name) {return std::make_shared<XorComponent>(name);};
     componentBuilders["and"] = [](const std::string& name) {return std::make_shared<AndComponent>(name);};
