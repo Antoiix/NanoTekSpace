@@ -17,7 +17,7 @@ Test(andComponent, test_false_false)
 {
     TestUtils util("../tests/FalseTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -37,7 +37,7 @@ Test(andComponent, test_true_true)
 {
     TestUtils util("../tests/TrueTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -57,7 +57,7 @@ Test(andComponent, test_true_false)
 {
     TestUtils util("../tests/FalseTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -77,7 +77,7 @@ Test(andComponent, test_false_undefined)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -97,7 +97,7 @@ Test(andComponent, test_true_undefined)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -117,7 +117,7 @@ Test(andComponent, test_undefined_undefined)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("input2", "input");
@@ -138,7 +138,7 @@ Test(andComponent, test_wrong_pin)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
