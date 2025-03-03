@@ -14,7 +14,7 @@
 nts::OrComponent::OrComponent(std::string name) : AComponent(3, std::move(name))
 {}
 
-nts::Tristate nts::OrComponent::compute(std::size_t pin, const Map &map)
+nts::Tristate nts::OrComponent::compute(std::size_t pin, Map &map)
 {
     this->_pins[1]->setState(this->getLink(1, map));
     this->_pins[2]->setState(this->getLink(2, map));

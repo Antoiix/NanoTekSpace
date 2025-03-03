@@ -64,6 +64,7 @@ void Shell::getExecutionCommands()
 
     std::cout << "> ";
     while (std::getline(std::cin, buffer) && buffer != "exit") {
+        this->components_map.computed_pins.clear();
         if (buffer == "display") {
             std::cout << this->getOutputString();
             std::cout << "> ";

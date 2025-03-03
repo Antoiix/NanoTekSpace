@@ -27,9 +27,17 @@ void nts::AComponent::setLink(std::size_t pin, const std::string& nameOther, std
     this->_pins[pin]->setOtherPin(otherPin);
 }
 
-nts::Tristate nts::AComponent::getLink(std::size_t pin, const Map& map) const
+nts::Tristate nts::AComponent::getLink(std::size_t pin, Map& map) const
 {
+    auto tmpPair = std::make_pair(this->_name, pin);
     auto link = map.getComponent(this->_pins.at(pin)->getLinkedComponent());
+
+    for (const auto& [fst, snd] : map.computed_pins)
+    {
+        if (fst == tmpPair.first && snd == tmpPair.second)
+            return link->getPin(pin);
+    }
+    map.computed_pins.emplace_back(this->_name, pin);
     if (link != nullptr)
         return link->compute(this->_pins.at(pin)->getOtherPin(), map);
     return Tristate::Undefined;
@@ -41,6 +49,13 @@ void nts::AComponent::changePinState(std::size_t pin, Tristate newState)
     (void)newState;
 }
 
+nts::Tristate nts::AComponent::getPin(std::size_t pin)
+{
+    auto tmpPin = this->_pins.at(pin);
+    if (tmpPin != nullptr)
+        return tmpPin->getState();
+    return Tristate::Undefined;
+}
 
 std::ostream& operator<<(std::ostream& os, nts::Tristate v)
 {

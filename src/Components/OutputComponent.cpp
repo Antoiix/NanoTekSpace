@@ -14,7 +14,7 @@
 nts::OutputComponent::OutputComponent(std::string name) : AComponent(1, std::move(name))
 {}
 
-nts::Tristate nts::OutputComponent::compute(std::size_t pin, const Map &map)
+nts::Tristate nts::OutputComponent::compute(std::size_t pin, Map &map)
 {
     (void)pin;
     this->_pins[1]->setState(this->getLink(1, map));

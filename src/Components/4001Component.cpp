@@ -21,7 +21,7 @@ static nts::Tristate norGate(nts::Tristate pin1, nts::Tristate pin2)
     return nts::Undefined;
 }
 
-nts::Tristate nts::C4001Component::compute(std::size_t pin, const Map& map)
+nts::Tristate nts::C4001Component::compute(std::size_t pin, Map& map)
 {
     this->_pins[1]->setState(this->getLink(1, map));
     this->_pins[2]->setState(this->getLink(2, map));

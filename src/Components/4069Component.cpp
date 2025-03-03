@@ -21,7 +21,7 @@ static nts::Tristate notGate(nts::Tristate pin1)
     return nts::Undefined;
 }
 
-nts::Tristate nts::C4069Component::compute(std::size_t pin, const Map& map)
+nts::Tristate nts::C4069Component::compute(std::size_t pin, Map& map)
 {
     this->_pins[1]->setState(this->getLink(1, map));
     this->_pins[3]->setState(this->getLink(3, map));

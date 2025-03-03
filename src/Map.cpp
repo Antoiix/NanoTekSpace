@@ -27,6 +27,11 @@ size_t nts::Map::getTick() const
     return this->tick;
 }
 
+nts::Map::Map()
+{
+    this->tick = 0;
+}
+
 void nts::Map::incrementTick()
 {
     this->tick++;

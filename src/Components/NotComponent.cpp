@@ -16,7 +16,7 @@ nts::NotComponent::NotComponent(std::string name) : AComponent(2, std::move(name
 {
 }
 
-nts::Tristate nts::NotComponent::compute(std::size_t pin, const Map &map)
+nts::Tristate nts::NotComponent::compute(std::size_t pin, Map &map)
 {
     (void)pin;
     if (pin != 2)

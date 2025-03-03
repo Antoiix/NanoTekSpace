@@ -12,7 +12,7 @@
 nts::XorComponent::XorComponent(const std::string &name) : AComponent(3, name)
 {}
 
-nts::Tristate nts::XorComponent::compute(std::size_t pin, const Map& map)
+nts::Tristate nts::XorComponent::compute(std::size_t pin, Map& map)
 {
     this->_pins[1]->setState(this->getLink(1, map));
     this->_pins[2]->setState(this->getLink(2, map));
