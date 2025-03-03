@@ -17,7 +17,7 @@ Test(C4011Component, test_false_false_gate1)
 {
     TestUtils util("../tests/TrueTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -37,7 +37,7 @@ Test(C4011Component, test_true_true_gate1)
 {
     TestUtils util("../tests/FalseTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -57,7 +57,7 @@ Test(C4011Component, test_true_false_gate1)
 {
     TestUtils util("../tests/TrueTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -77,7 +77,7 @@ Test(C4011Component, test_false_undefined_gate1)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -97,7 +97,7 @@ Test(C4011Component, test_true_undefined_gate1)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -117,7 +117,7 @@ Test(C4011Component, test_undefined_undefined_gate1)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("input2", "input");
@@ -138,7 +138,7 @@ Test(C4011Component, test_wrong_pin_gate1)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -158,7 +158,7 @@ Test(C4011Component, test_false_false_gate2)
 {
     TestUtils util("../tests/TrueTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -178,7 +178,7 @@ Test(C4011Component, test_true_true_gate2)
 {
     TestUtils util("../tests/FalseTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -198,7 +198,7 @@ Test(C4011Component, test_true_false_gate2)
 {
     TestUtils util("../tests/TrueTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -218,7 +218,7 @@ Test(C4011Component, test_false_undefined_gate2)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -238,7 +238,7 @@ Test(C4011Component, test_true_undefined_gate2)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -258,7 +258,7 @@ Test(C4011Component, test_undefined_undefined_gate2)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("input2", "input");
@@ -279,7 +279,7 @@ Test(C4011Component, test_wrong_pin_gate2)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -299,7 +299,7 @@ Test(C4011Component, test_false_false_gate3)
 {
     TestUtils util("../tests/TrueTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -319,7 +319,7 @@ Test(C4011Component, test_true_true_gate3)
 {
     TestUtils util("../tests/FalseTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -339,7 +339,7 @@ Test(C4011Component, test_true_false_gate3)
 {
     TestUtils util("../tests/TrueTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -359,7 +359,7 @@ Test(C4011Component, test_false_undefined_gate3)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -379,7 +379,7 @@ Test(C4011Component, test_true_undefined_gate3)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -399,7 +399,7 @@ Test(C4011Component, test_undefined_undefined_gate3)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("input2", "input");
@@ -420,7 +420,7 @@ Test(C4011Component, test_wrong_pin_gate3)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -440,7 +440,7 @@ Test(C4011Component, test_false_false_gate4)
 {
     TestUtils util("../tests/TrueTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -460,7 +460,7 @@ Test(C4011Component, test_true_true_gate4)
 {
     TestUtils util("../tests/FalseTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -480,7 +480,7 @@ Test(C4011Component, test_true_false_gate4)
 {
     TestUtils util("../tests/TrueTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -500,7 +500,7 @@ Test(C4011Component, test_false_undefined_gate4)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -520,7 +520,7 @@ Test(C4011Component, test_true_undefined_gate4)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");
@@ -540,7 +540,7 @@ Test(C4011Component, test_undefined_undefined_gate4)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("input2", "input");
@@ -561,7 +561,7 @@ Test(C4011Component, test_wrong_pin_gate4)
 {
     TestUtils util("../tests/UndefinedTristate.txt");
 
-    Shell shell;
+    nts::Shell shell;
 
     shell.addComponent("input1", "input");
     shell.addComponent("true1", "true");

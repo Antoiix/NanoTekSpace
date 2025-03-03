@@ -20,6 +20,20 @@ enum TYPE {
     LINKS
 };
 
-Shell manage_parsing(Shell shell ,const std::string& file_name);
+class NameAlreadyUsed : public std::exception {
+    public:
+    const char *what() const noexcept override {
+        return "Name already used";
+    }
+};
+
+class InvalidFileInstruction : public std::exception {
+    public:
+    const char *what() const noexcept override {
+        return "Invalid instruction in file";
+    }
+};
+
+nts::Shell manage_parsing(nts::Shell shell ,const std::string& file_name);
 
 #endif //NANOTEKSPICE_PARSING_HPP

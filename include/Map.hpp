@@ -26,6 +26,7 @@ namespace nts
         std::shared_ptr<IComponent> getComponent(const std::string& name) const;
         void incrementTick();
         size_t getTick() const;
+        bool isEmpty() const;
     private:
         size_t tick;
         std::map<std::string, std::shared_ptr<IComponent>> map_components;
