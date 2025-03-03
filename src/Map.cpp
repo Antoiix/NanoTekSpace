@@ -31,3 +31,8 @@ void nts::Map::incrementTick()
 {
     this->tick++;
 }
+
+bool nts::Map::isEmpty() const
+{
+    return this->map_components.empty();
+}
