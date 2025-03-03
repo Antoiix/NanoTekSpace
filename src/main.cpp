@@ -19,9 +19,13 @@ int main(int ac, char **argv)
         std::cerr << "Invalid number of arguments." << std::endl;
         return 84;
     }
-    Shell shell;
+    nts::Shell shell;
+    try {
+        shell = manage_parsing(shell, argv[1]);
+        shell.getExecutionCommands();
+    } catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+        return 84;
+    }
 
-    shell = manage_parsing(shell, argv[1]);
-
-    shell.getExecutionCommands();
 }

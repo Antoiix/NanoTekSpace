@@ -13,7 +13,7 @@ static void signalHandler(int signum)
     Utils::loopExitFlag = false;
 }
 
-bool Shell::inputIsValid(const std::string& buffer) const
+bool nts::Shell::inputIsValid(const std::string& buffer) const
 {
     std::list<std::string> word_array = Utils::myStrToWordArray(buffer, "=");
 
@@ -38,7 +38,7 @@ bool Shell::inputIsValid(const std::string& buffer) const
     return false;
 }
 
-void Shell::getExecutionCommands()
+void nts::Shell::getExecutionCommands()
 {
     std::string buffer;
     std::stringstream firstSs;
@@ -131,46 +131,46 @@ void Shell::getExecutionCommands()
     }
 }
 
-void Shell::addComponent(const std::string& name, const std::string& component)
+void nts::Shell::addComponent(const std::string& name, const std::string& component)
 {
     this->factory.CreateComponent(component, name, this->components_map);
 }
 
-std::shared_ptr<nts::IComponent> Shell::getComponent(const std::string& name) const
+std::shared_ptr<nts::IComponent> nts::Shell::getComponent(const std::string& name) const
 {
     return this->components_map.getComponent(name);
 }
 
-void Shell::addLink(const std::string& from, const std::string& to) const
+void nts::Shell::addLink(const std::string& from, const std::string& to) const
 {
     const std::list<std::string> fromWordArray = Utils::myStrToWordArray(from, ":");
     const std::list<std::string> toWordArray = Utils::myStrToWordArray(to, ":");
 
-    if (getComponent(fromWordArray.front()) == nullptr)
-        throw "don't exist"; // put real error
-    if (getComponent(toWordArray.front()) == nullptr)
-        throw "don't exist"; // put real error
+    if (this->components_map.isEmpty())
+        throw NoChipsetFailure();
+    if (getComponent(fromWordArray.front()) == nullptr || getComponent(toWordArray.front()) == nullptr)
+        throw ComponentDontExist();
     this->getComponent(fromWordArray.front())->setLink(std::stoi(fromWordArray.back()),toWordArray.front(), std::stoi(toWordArray.back()));
     int i = 1;
     i = i;
 }
 
-void Shell::addInput(const std::string& input)
+void nts::Shell::addInput(const std::string& input)
 {
     this->listInputs.push_back(input);
 }
 
-void Shell::addOutput(const std::string& output)
+void nts::Shell::addOutput(const std::string& output)
 {
     this->listOutputs.push_back(output);
 }
 
-std::string Shell::getOutputString() const
+std::string nts::Shell::getOutputString() const
 {
     return this->outputString;
 }
 
-void Shell::setOutputString(const std::string& output)
+void nts::Shell::setOutputString(const std::string& output)
 {
     this->outputString.clear();
     this->outputString = output;
