@@ -3,9 +3,12 @@ input input1
 true true2
 false false1
 and and1
+and and2
 output out1
 
 .links:
 and1:1 input1:1
-and1:2 true2:1
+and1:2 and2:3
+and2:1 true2:1
+and2:2 and1:3
 out1:1 and1:3
