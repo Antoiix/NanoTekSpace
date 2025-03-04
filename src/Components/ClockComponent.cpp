@@ -14,7 +14,7 @@ nts::ClockComponent::ClockComponent(std::string name) : AComponent(1, std::move(
     this->_pins[1]->setState(Undefined);
 }
 
-nts::Tristate nts::ClockComponent::compute(std::size_t pin, const Map &map)
+nts::Tristate nts::ClockComponent::compute(std::size_t pin, Map &map)
 {
     (void)map;
     (void)pin;
