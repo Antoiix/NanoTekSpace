@@ -16,7 +16,7 @@ nts::FalseComponent::FalseComponent(std::string name) : AComponent(1, std::move(
     this->_pins[1]->setState(Tristate::False);
 }
 
-nts::Tristate nts::FalseComponent::compute(std::size_t pin, const Map& map)
+nts::Tristate nts::FalseComponent::compute(std::size_t pin, Map& map)
 {
     (void)map;
     (void)pin;

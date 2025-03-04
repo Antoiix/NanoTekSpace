@@ -29,7 +29,7 @@ namespace nts
         void changePinState(std::size_t pin, Tristate newState) override;
         Tristate getPinState(std::size_t pin) override;
 
-        Tristate getLink(std::size_t pin, const Map &map) const;
+        Tristate getLink(std::size_t pin, Map &map) const;
     protected:
         std::string _name;
         std::map<size_t, std::shared_ptr<Pin>> _pins;

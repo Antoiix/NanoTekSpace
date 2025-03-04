@@ -14,7 +14,7 @@
 nts::InputComponent::InputComponent(std::string name) : AComponent(1, std::move(name))
 {}
 
-nts::Tristate nts::InputComponent::compute(std::size_t pin, const Map &map)
+nts::Tristate nts::InputComponent::compute(std::size_t pin, Map &map)
 {
     (void)map;
     (void)pin;

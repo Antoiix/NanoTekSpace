@@ -16,7 +16,7 @@ nts::TrueComponent::TrueComponent(std::string name) : AComponent(1, std::move(na
     this->_pins[1]->setState(Tristate::True);
 }
 
-nts::Tristate nts::TrueComponent::compute(std::size_t pin, const Map &map)
+nts::Tristate nts::TrueComponent::compute(std::size_t pin, Map &map)
 {
     (void)map;
     (void)pin;

@@ -27,9 +27,10 @@ void nts::AComponent::setLink(std::size_t pin, const std::string& nameOther, std
     this->_pins[pin]->setOtherPin(otherPin);
 }
 
-nts::Tristate nts::AComponent::getLink(std::size_t pin, const Map& map) const
+nts::Tristate nts::AComponent::getLink(std::size_t pin, Map& map) const
 {
     auto link = map.getComponent(this->_pins.at(pin)->getLinkedComponent());
+
     if (link != nullptr)
         return link->compute(this->_pins.at(pin)->getOtherPin(), map);
     return Tristate::Undefined;

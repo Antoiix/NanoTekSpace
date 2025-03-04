@@ -19,7 +19,7 @@ namespace nts
     public:
         explicit C4071Component(const std::string &name);
 
-        nts::Tristate compute(std::size_t pin, const Map& map) override;
+        nts::Tristate compute(std::size_t pin, Map& map) override;
     };
 }
 
