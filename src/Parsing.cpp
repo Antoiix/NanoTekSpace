@@ -7,7 +7,7 @@
 
 #include "Parsing.hpp"
 
-Shell chooseFunction(Shell shell, TYPE actual, const std::list<std::string>& word_array)
+nts::Shell chooseFunction(nts::Shell shell, TYPE actual, const std::list<std::string>& word_array)
 {
     if (word_array.size() == 2 && actual != NOTHING) {
         if (actual == LINKS)
@@ -15,20 +15,20 @@ Shell chooseFunction(Shell shell, TYPE actual, const std::list<std::string>& wor
         if (actual == CHIPSET)
         {
             if (shell.getComponent(word_array.back()) != nullptr)
-                throw "name already used"; // put real error
+                throw NameAlreadyUsed();
             shell.addComponent(word_array.back(), word_array.front());
-            if (word_array.front() == "input" || word_array.front() == "true" || word_array.front() == "false" || word_array.front() == "clock")
+            if (word_array.front() == "input" || word_array.front() == "clock")
                 shell.addInput(word_array.back());
             if (word_array.front() == "output")
                 shell.addOutput(word_array.back());
         }
     } else {
-        throw std::runtime_error("INVALID FILE");
+        throw InvalidFileInstruction();
     }
     return shell;
 }
 
-Shell manage_parsing(Shell shell ,const std::string& file_name)
+nts::Shell manage_parsing(nts::Shell shell ,const std::string& file_name)
 {
     std::string buffer = Utils::getFileContent(file_name);
     std::list<std::string> line_array = Utils::myStrToWordArray(buffer, "\n");

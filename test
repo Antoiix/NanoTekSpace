@@ -1,5 +1,5 @@
 .chipsets:
-input input1
+clock input1
 true true2
 false false1
 and and1

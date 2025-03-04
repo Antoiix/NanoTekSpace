@@ -27,6 +27,7 @@ namespace nts
         std::shared_ptr<IComponent> getComponent(const std::string& name) const;
         void incrementTick();
         size_t getTick() const;
+        bool isEmpty() const;
         std::list<std::pair<std::string, size_t>> computed_pins;
     private:
         size_t tick;

@@ -27,7 +27,7 @@ namespace nts
         void simulate(std::size_t tick) override;
         void setLink(std::size_t pin, const std::string& nameOther, std::size_t otherPin) override;
         void changePinState(std::size_t pin, Tristate newState) override;
-        nts::Tristate getPin(std::size_t pin) override;
+        Tristate getPinState(std::size_t pin) override;
 
         Tristate getLink(std::size_t pin, Map &map) const;
     protected:
