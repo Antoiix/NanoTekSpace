@@ -29,7 +29,8 @@ namespace nts {
         std::shared_ptr<nts::IComponent> getComponent(const std::string &name) const;
         nts::Map components_map;
         void addInput(const std::string &input);
-        void addOutput(const std::string &output);
+        void addOutput(const std::string &logger);
+        void addLogger(const std::string &output);
         void setOutputString(const std::string &output);
         std::string getOutputString() const;
         bool inputIsValid(const std::string& buffer) const;
@@ -51,6 +52,7 @@ namespace nts {
         std::string outputString;
         std::list<std::string> listInputs;
         std::list<std::string> listOutputs;
+        std::list<std::string> listLogger;
         nts::Factory factory;
     };
 }

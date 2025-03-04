@@ -21,6 +21,8 @@ nts::Shell chooseFunction(nts::Shell shell, TYPE actual, const std::list<std::st
                 shell.addInput(word_array.back());
             if (word_array.front() == "output")
                 shell.addOutput(word_array.back());
+            if (word_array.front() == "logger")
+                shell.addLogger(word_array.back());
         }
     } else {
         throw InvalidFileInstruction();

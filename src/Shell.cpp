@@ -90,6 +90,13 @@ void nts::Shell::getExecutionCommands()
                     continue;
                 ss << "\t" << currentOutput << ": " << tmpOutput->compute(1, this->components_map) << std::endl;
             }
+            for (const auto& currentLogger : this->listLogger)
+            {
+                auto tmpOutput = this->components_map.getComponent(currentLogger);
+                if (tmpOutput == nullptr)
+                    continue;
+                tmpOutput->compute(1, this->components_map);
+            }
             this->setOutputString(ss.str());
             std::cout << "> ";
             continue;
@@ -116,6 +123,13 @@ void nts::Shell::getExecutionCommands()
                     if (tmpOutput == nullptr)
                         continue;
                     ss << "\t" << currentOutput << ": " << tmpOutput->compute(1, this->components_map) << std::endl;
+                }
+                for (const auto& currentLogger : this->listLogger)
+                {
+                    auto tmpOutput = this->components_map.getComponent(currentLogger);
+                    if (tmpOutput == nullptr)
+                        continue;
+                    tmpOutput->compute(1, this->components_map);
                 }
                 this->setOutputString(ss.str());
             }
@@ -164,6 +178,11 @@ void nts::Shell::addInput(const std::string& input)
 void nts::Shell::addOutput(const std::string& output)
 {
     this->listOutputs.push_back(output);
+}
+
+void nts::Shell::addLogger(const std::string& logger)
+{
+    this->listLogger.push_back(logger);
 }
 
 std::string nts::Shell::getOutputString() const
