@@ -33,6 +33,7 @@ namespace nts
         virtual nts::Tristate compute(std::size_t pin, const Map& map) = 0;
         virtual void setLink(std::size_t pin, const std::string &nameOther, std::size_t otherPin) = 0;
         virtual void changePinState(std::size_t pin, Tristate newState) = 0;
+        virtual Tristate getPinState(std::size_t pin) = 0;
     };
 }
 

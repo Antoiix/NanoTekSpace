@@ -18,6 +18,7 @@ nts::Tristate nts::ClockComponent::compute(std::size_t pin, const Map &map)
 {
     (void)map;
     (void)pin;
+
     switch (this->_pins[1]->getState()) {
       case Undefined:
         return Undefined;
@@ -31,19 +32,10 @@ nts::Tristate nts::ClockComponent::compute(std::size_t pin, const Map &map)
     return Undefined;
 }
 
-void nts::ClockComponent::changePinState(std::size_t pin, Tristate newState) {
-    if (const auto tmpPin = this->_pins.at(pin)) {
-        switch (newState) {
-            case Undefined:
-                tmpPin->setState(Undefined);
-            break;
-            case True:
-                tmpPin->setState(False);
-            break;
-            case False:
-                tmpPin->setState(True);
-            break;
-        }
-    }
+void nts::ClockComponent::changePinState(std::size_t pin, Tristate newState)
+{
+    auto tmpPin = this->_pins.at(pin);
+    if (tmpPin != nullptr)
+        tmpPin->setState(newState);
 }
 

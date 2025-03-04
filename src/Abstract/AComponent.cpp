@@ -41,6 +41,13 @@ void nts::AComponent::changePinState(std::size_t pin, Tristate newState)
     (void)newState;
 }
 
+nts::Tristate nts::AComponent::getPinState(std::size_t pin)
+{
+    auto tmpPin = _pins.at(pin);
+    if (tmpPin != nullptr)
+        return tmpPin->getState();
+    return Tristate::Undefined;
+}
 
 std::ostream& operator<<(std::ostream& os, nts::Tristate v)
 {
