@@ -29,6 +29,7 @@ add_executable(nanotekspice
         src/Components/TrueComponent.cpp
         src/Factory.cpp
         src/Components/XorComponent.cpp
+        src/Components/ClockComponent.cpp
         src/Components/4030Component.cpp
         src/Components/4001Component.cpp
         src/Components/4071Component.cpp
@@ -61,6 +62,7 @@ add_executable(unit_tests
         src/Map.cpp
         src/Pin.cpp
         src/Components/AndComponent.cpp
+        src/Components/ClockComponent.cpp
         src/Components/FalseComponent.cpp
         src/Components/InputComponent.cpp
         src/Components/NotComponent.cpp
