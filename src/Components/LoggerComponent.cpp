@@ -16,19 +16,8 @@ nts::Tristate nts::LoggerComponent::compute(std::size_t pin, Map &map)
 {
     int value = 0;
     std::string str;
+    (void)pin;
 
-    auto tmpPair = std::make_pair(this->_name, pin);
-    for (const auto& [fst, snd] : map.computed_pins)
-    {
-        if (fst == tmpPair.first && snd == tmpPair.second)
-        {
-            auto tmpPin = this->_pins.at(pin);
-            if (tmpPin != nullptr)
-                return tmpPin->getState();
-            return Undefined;
-        }
-    }
-    map.computed_pins.emplace_back(this->_name, pin);
     this->_pins[1]->setState(this->getLink(1, map));
     this->_pins[2]->setState(this->getLink(2, map));
     this->_pins[3]->setState(this->getLink(3, map));
@@ -46,18 +35,19 @@ nts::Tristate nts::LoggerComponent::compute(std::size_t pin, Map &map)
                 value += 1;
                 if (i != 1)
                     value = value << 1;
+                continue;
             }
             if (this->_pins[i]->getState() == False) {
                 value += 0b00;
                 if (i != 1)
                     value = value << 1;
+                continue;
             }
             return Undefined;
         }
-
+        str += char(value);
+        Utils::writeInFile(str, "log.bin");
     }
-    str += char(value);
-    Utils::writeInFile(str, "log.bin");
     return Undefined;
 }
 
