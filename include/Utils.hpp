@@ -20,6 +20,7 @@ namespace Utils
 
     std::list<std::string> myStrToWordArray(const std::string& buffer, const std::string& delimiter);
     std::string getFileContent(const std::string& fileName);
+    void writeInFile(const std::string& string, const std::string& fileName);
     std::string removeComment(const std::string& string);
 
     class FileError : public std::exception
