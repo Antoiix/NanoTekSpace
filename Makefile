@@ -104,8 +104,8 @@ tests_run: clean
 	g++ -o unit_tests $(TESTSRC) \
 		--coverage -lcriterion $(CPPFLAGS)
 	./unit_tests
-	gcovr
-	gcovr --branches
+	gcovr --exclude include/
+	gcovr --exclude include/ --branches
 
 fclean: clean
 	rm -f $(NAME) unit_tests
