@@ -133,6 +133,7 @@ void nts::Shell::getExecutionCommands()
                 }
                 this->setOutputString(ss.str());
             }
+            std::signal(SIGINT, SIG_DFL);
             std::cout << this->getOutputString();
             std::cout << "> ";
             continue;
