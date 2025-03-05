@@ -37,11 +37,14 @@ nts::Shell manage_parsing(nts::Shell shell ,const std::string& file_name)
     std::list<std::string> temp_word_array;
     TYPE actual = NOTHING;
 
-    std::for_each(line_array.begin(), line_array.end(), Utils::removeComment);
-
-    for (const auto& line: line_array) {
+    for (auto line: line_array) {
+        line = Utils::removeComment(line);
+        if (line.empty())
+          continue;
         temp_word_array = Utils::myStrToWordArray(line, " \t");
 
+        if (temp_word_array.front().front() == '#')
+            continue;
         if (std::strcmp(temp_word_array.front().c_str(), ".chipsets:") == 0) {
             actual = CHIPSET;
             continue;

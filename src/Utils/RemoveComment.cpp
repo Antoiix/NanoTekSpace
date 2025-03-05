@@ -9,6 +9,6 @@
 
 std::string Utils::removeComment(const std::string& string)
 {
-    size_t indice = string.find('#');
+    int indice = string.find('#');
     return string.substr(0, indice);
 }
