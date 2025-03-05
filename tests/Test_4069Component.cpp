@@ -15,7 +15,7 @@
 
 Test(C4069Component, test_false1)
 {
-    TestUtils util("../tests/TrueTristate.txt");
+    TestUtils util("tests/TrueTristate.txt");
 
     nts::Shell shell;
 
@@ -34,7 +34,7 @@ Test(C4069Component, test_false1)
 
 Test(C4069Component, test_true1)
 {
-    TestUtils util("../tests/FalseTristate.txt");
+    TestUtils util("tests/FalseTristate.txt");
 
     nts::Shell shell;
 
@@ -53,7 +53,7 @@ Test(C4069Component, test_true1)
 
 Test(C4069Component, test_undefined1)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -72,7 +72,7 @@ Test(C4069Component, test_undefined1)
 
 Test(C4069Component, test_wrong_pin1)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -91,7 +91,7 @@ Test(C4069Component, test_wrong_pin1)
 
 Test(C4069Component, test_false2)
 {
-    TestUtils util("../tests/TrueTristate.txt");
+    TestUtils util("tests/TrueTristate.txt");
 
     nts::Shell shell;
 
@@ -110,7 +110,7 @@ Test(C4069Component, test_false2)
 
 Test(C4069Component, test_true2)
 {
-    TestUtils util("../tests/FalseTristate.txt");
+    TestUtils util("tests/FalseTristate.txt");
 
     nts::Shell shell;
 
@@ -129,7 +129,7 @@ Test(C4069Component, test_true2)
 
 Test(C4069Component, test_undefined2)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -148,7 +148,7 @@ Test(C4069Component, test_undefined2)
 
 Test(C4069Component, test_wrong_pin2)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -167,7 +167,7 @@ Test(C4069Component, test_wrong_pin2)
 
 Test(C4069Component, test_false3)
 {
-    TestUtils util("../tests/TrueTristate.txt");
+    TestUtils util("tests/TrueTristate.txt");
 
     nts::Shell shell;
 
@@ -186,7 +186,7 @@ Test(C4069Component, test_false3)
 
 Test(C4069Component, test_true3)
 {
-    TestUtils util("../tests/FalseTristate.txt");
+    TestUtils util("tests/FalseTristate.txt");
 
     nts::Shell shell;
 
@@ -205,7 +205,7 @@ Test(C4069Component, test_true3)
 
 Test(C4069Component, test_undefined3)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -224,7 +224,7 @@ Test(C4069Component, test_undefined3)
 
 Test(C4069Component, test_wrong_pin3)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -243,7 +243,7 @@ Test(C4069Component, test_wrong_pin3)
 
 Test(C4069Component, test_false4)
 {
-    TestUtils util("../tests/TrueTristate.txt");
+    TestUtils util("tests/TrueTristate.txt");
 
     nts::Shell shell;
 
@@ -262,7 +262,7 @@ Test(C4069Component, test_false4)
 
 Test(C4069Component, test_true4)
 {
-    TestUtils util("../tests/FalseTristate.txt");
+    TestUtils util("tests/FalseTristate.txt");
 
     nts::Shell shell;
 
@@ -281,7 +281,7 @@ Test(C4069Component, test_true4)
 
 Test(C4069Component, test_undefined4)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -300,7 +300,7 @@ Test(C4069Component, test_undefined4)
 
 Test(C4069Component, test_wrong_pin4)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -319,7 +319,7 @@ Test(C4069Component, test_wrong_pin4)
 
 Test(C4069Component, test_false5)
 {
-    TestUtils util("../tests/TrueTristate.txt");
+    TestUtils util("tests/TrueTristate.txt");
 
     nts::Shell shell;
 
@@ -338,7 +338,7 @@ Test(C4069Component, test_false5)
 
 Test(C4069Component, test_true5)
 {
-    TestUtils util("../tests/FalseTristate.txt");
+    TestUtils util("tests/FalseTristate.txt");
 
     nts::Shell shell;
 
@@ -357,7 +357,7 @@ Test(C4069Component, test_true5)
 
 Test(C4069Component, test_undefined5)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -376,7 +376,7 @@ Test(C4069Component, test_undefined5)
 
 Test(C4069Component, test_wrong_pin5)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -395,7 +395,7 @@ Test(C4069Component, test_wrong_pin5)
 
 Test(C4069Component, test_false6)
 {
-    TestUtils util("../tests/TrueTristate.txt");
+    TestUtils util("tests/TrueTristate.txt");
 
     nts::Shell shell;
 
@@ -414,7 +414,7 @@ Test(C4069Component, test_false6)
 
 Test(C4069Component, test_true6)
 {
-    TestUtils util("../tests/FalseTristate.txt");
+    TestUtils util("tests/FalseTristate.txt");
 
     nts::Shell shell;
 
@@ -433,7 +433,7 @@ Test(C4069Component, test_true6)
 
 Test(C4069Component, test_undefined6)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -452,7 +452,7 @@ Test(C4069Component, test_undefined6)
 
 Test(C4069Component, test_wrong_pin6)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 

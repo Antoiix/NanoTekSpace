@@ -15,7 +15,7 @@
 
 Test(NotComponent, test_false)
 {
-    TestUtils util("../tests/TrueTristate.txt");
+    TestUtils util("tests/TrueTristate.txt");
 
     nts::Shell shell;
 
@@ -34,7 +34,7 @@ Test(NotComponent, test_false)
 
 Test(NotComponent, test_true)
 {
-    TestUtils util("../tests/FalseTristate.txt");
+    TestUtils util("tests/FalseTristate.txt");
 
     nts::Shell shell;
 
@@ -53,7 +53,7 @@ Test(NotComponent, test_true)
 
 Test(NotComponent, test_undefined)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -72,7 +72,7 @@ Test(NotComponent, test_undefined)
 
 Test(NotComponent, test_wrong_pin)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 

@@ -15,7 +15,7 @@
 
 Test(xorComponent, test_false_false)
 {
-    TestUtils util("../tests/FalseTristate.txt");
+    TestUtils util("tests/FalseTristate.txt");
 
     nts::Shell shell;
 
@@ -35,7 +35,7 @@ Test(xorComponent, test_false_false)
 
 Test(xorComponent, test_true_true)
 {
-    TestUtils util("../tests/FalseTristate.txt");
+    TestUtils util("tests/FalseTristate.txt");
 
     nts::Shell shell;
 
@@ -55,7 +55,7 @@ Test(xorComponent, test_true_true)
 
 Test(xorComponent, test_true_false)
 {
-    TestUtils util("../tests/TrueTristate.txt");
+    TestUtils util("tests/TrueTristate.txt");
 
     nts::Shell shell;
 
@@ -75,7 +75,7 @@ Test(xorComponent, test_true_false)
 
 Test(xorComponent, test_false_undefined)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -95,7 +95,7 @@ Test(xorComponent, test_false_undefined)
 
 Test(xorComponent, test_true_undefined)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -115,7 +115,7 @@ Test(xorComponent, test_true_undefined)
 
 Test(xorComponent, test_undefined_undefined)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 
@@ -136,7 +136,7 @@ Test(xorComponent, test_undefined_undefined)
 
 Test(xorComponent, test_wrong_pin)
 {
-    TestUtils util("../tests/UndefinedTristate.txt");
+    TestUtils util("tests/UndefinedTristate.txt");
 
     nts::Shell shell;
 

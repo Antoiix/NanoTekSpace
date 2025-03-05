@@ -12,7 +12,7 @@
 
 Test(myStrToWordArray, commonSpaceCase)
 {
-    TestUtils util("../tests/txt_for_Tests_Utils/strToWordArray.txt");
+    TestUtils util("tests/txt_for_Tests_Utils/strToWordArray.txt");
 
     std::list<std::string> word_array = Utils::myStrToWordArray("toto tourte test tata", " ");
 
@@ -24,7 +24,7 @@ Test(myStrToWordArray, commonSpaceCase)
 
 Test(myStrToWordArray, SpaceTabCase)
 {
-    TestUtils util("../tests/txt_for_Tests_Utils/strToWordArray.txt");
+    TestUtils util("tests/txt_for_Tests_Utils/strToWordArray.txt");
 
     std::list<std::string> word_array = Utils::myStrToWordArray("toto\ttourte\ttest tata", "\t ");
 
@@ -36,7 +36,7 @@ Test(myStrToWordArray, SpaceTabCase)
 
 Test(myStrToWordArray, multipleSpaceTabCase)
 {
-    TestUtils util("../tests/txt_for_Tests_Utils/strToWordArray.txt");
+    TestUtils util("tests/txt_for_Tests_Utils/strToWordArray.txt");
 
     std::list<std::string> word_array = Utils::myStrToWordArray("toto \t tourte \t\t\t test     tata", "\t ");
 
@@ -48,7 +48,7 @@ Test(myStrToWordArray, multipleSpaceTabCase)
 
 Test(myStrToWordArray, multipleBeginEndSpaceTabCase)
 {
-    TestUtils util("../tests/txt_for_Tests_Utils/strToWordArray.txt");
+    TestUtils util("tests/txt_for_Tests_Utils/strToWordArray.txt");
 
     std::list<std::string> word_array = Utils::myStrToWordArray("  \t toto\t tourte\t test tata  \t ", "\t ");
 
@@ -60,7 +60,7 @@ Test(myStrToWordArray, multipleBeginEndSpaceTabCase)
 
 Test(removeComment, justComment)
 {
-    TestUtils util("../tests/txt_for_Tests_Utils/removeComment_justComment.txt");
+    TestUtils util("tests/txt_for_Tests_Utils/removeComment_justComment.txt");
 
     std::string string = Utils::removeComment("# ceci est un commentaire qui doit disparaitre");
 
@@ -71,7 +71,7 @@ Test(removeComment, justComment)
 
 Test(removeComment, commonCase)
 {
-    TestUtils util("../tests/txt_for_Tests_Utils/removeComment_commonCase.txt");
+    TestUtils util("tests/txt_for_Tests_Utils/removeComment_commonCase.txt");
 
     std::string string = Utils::removeComment("ce texte doit etre gardé# ceci est un commentaire qui doit disparaitre");
 
@@ -82,7 +82,7 @@ Test(removeComment, commonCase)
 
 Test(removeComment, emptyString)
 {
-    TestUtils util("../tests/txt_for_Tests_Utils/removeComment_justComment.txt");
+    TestUtils util("tests/txt_for_Tests_Utils/removeComment_justComment.txt");
 
     std::string string = Utils::removeComment("");
 
@@ -93,13 +93,13 @@ Test(removeComment, emptyString)
 
 Test(GetFileContent, commonCase)
 {
-    TestUtils util("../tests/txt_for_Tests_Utils/removeComment_justComment.txt");
+    TestUtils util("tests/txt_for_Tests_Utils/removeComment_justComment.txt");
 
     std::string string;
 
     try
     {
-        string = Utils::getFileContent("../tests/txt_for_Tests_Utils/removeComment_justComment.txt");
+        string = Utils::getFileContent("tests/txt_for_Tests_Utils/removeComment_justComment.txt");
     }
     catch (const std::exception& e)
     {

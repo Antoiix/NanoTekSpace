@@ -14,7 +14,7 @@
 
 Test(main, test_hello_world)
 {
-    TestUtils util("../tests/Test_main.txt");
+    TestUtils util("tests/Test_main.txt");
 
     print_hello_world();
 
@@ -23,7 +23,7 @@ Test(main, test_hello_world)
 
 Test(main_two, test_hello_world)
 {
-    TestUtils util("../tests/Test_main.txt");
+    TestUtils util("tests/Test_main.txt");
 
     print_hello_world();
 
