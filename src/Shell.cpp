@@ -114,7 +114,7 @@ void nts::Shell::getExecutionCommands()
                     auto tmpInput = this->components_map.getComponent(currentInput);
                     if (tmpInput == nullptr)
                         continue;
-                    ss << "\t" << currentInput << ": " << tmpInput->compute(1, this->components_map) << std::endl;
+                    ss << "\t" << currentInput << ": " << tmpInput->getPinState(1) << std::endl;
                 }
                 ss << "output(s):" << std::endl;
                 for (const auto& currentOutput : this->listOutputs)
