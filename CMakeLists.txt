@@ -13,13 +13,15 @@ add_executable(nanotekspice
         src/main.cpp
         src/HelloWorld.cpp
         src/Shell.cpp
+        src/Parsing.cpp
+        src/Map.cpp
+        src/Pin.cpp
+        src/Factory.cpp
+        src/Abstract/AComponent.cpp
         src/Utils/StrToWordArray.cpp
         src/Utils/GetFileContent.cpp
         src/Utils/RemoveComment.cpp
-        src/Parsing.cpp
-        src/Abstract/AComponent.cpp
-        src/Map.cpp
-        src/Pin.cpp
+        src/Utils/WriteInFile.cpp
         src/Components/AndComponent.cpp
         src/Components/FalseComponent.cpp
         src/Components/InputComponent.cpp
@@ -27,7 +29,6 @@ add_executable(nanotekspice
         src/Components/OrComponent.cpp
         src/Components/OutputComponent.cpp
         src/Components/TrueComponent.cpp
-        src/Factory.cpp
         src/Components/XorComponent.cpp
         src/Components/ClockComponent.cpp
         src/Components/4030Component.cpp
@@ -36,6 +37,7 @@ add_executable(nanotekspice
         src/Components/4081Component.cpp
         src/Components/4011Component.cpp
         src/Components/4069Component.cpp
+        src/Components/LoggerComponent.cpp
 )
 
 add_executable(unit_tests
@@ -54,13 +56,15 @@ add_executable(unit_tests
         tests/Test_Utils.cpp
         src/HelloWorld.cpp
         src/Shell.cpp
+        src/Parsing.cpp
+        src/Map.cpp
+        src/Pin.cpp
+        src/Factory.cpp
+        src/Abstract/AComponent.cpp
         src/Utils/StrToWordArray.cpp
         src/Utils/GetFileContent.cpp
         src/Utils/RemoveComment.cpp
-        src/Parsing.cpp
-        src/Abstract/AComponent.cpp
-        src/Map.cpp
-        src/Pin.cpp
+        src/Utils/WriteInFile.cpp
         src/Components/AndComponent.cpp
         src/Components/ClockComponent.cpp
         src/Components/FalseComponent.cpp
@@ -69,7 +73,6 @@ add_executable(unit_tests
         src/Components/OrComponent.cpp
         src/Components/OutputComponent.cpp
         src/Components/TrueComponent.cpp
-        src/Factory.cpp
         src/Components/XorComponent.cpp
         src/Components/4030Component.cpp
         src/Components/4001Component.cpp
@@ -77,6 +80,7 @@ add_executable(unit_tests
         src/Components/4081Component.cpp
         src/Components/4011Component.cpp
         src/Components/4069Component.cpp
+        src/Components/LoggerComponent.cpp
 )
 
 target_link_libraries(unit_tests criterion)

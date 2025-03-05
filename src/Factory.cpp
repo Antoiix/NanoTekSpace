@@ -9,6 +9,8 @@
 
 #include "Factory.hpp"
 
+#include <LoggerComponent.hpp>
+
 #include "4081Component.hpp"
 #include "4071Component.hpp"
 #include "4001Component.hpp"
@@ -42,6 +44,7 @@ nts::Factory::Factory()
     componentBuilders["4069"] = [](const std::string& name) {return std::make_shared<C4069Component>(name);};
     componentBuilders["4071"] = [](const std::string& name) {return std::make_shared<C4071Component>(name);};
     componentBuilders["4081"] = [](const std::string& name) {return std::make_shared<C4081Component>(name);};
+    componentBuilders["logger"] = [](const std::string& name) {return std::make_shared<LoggerComponent>(name);};
 }
 
 void nts::Factory::CreateComponent(const std::string& componentName, const std::string& name, Map &map)
