@@ -34,6 +34,7 @@ namespace nts {
         void setOutputString(const std::string &output);
         std::string getOutputString() const;
         bool inputIsValid(const std::string& buffer) const;
+        bool listEmpty() const;
 
         class NoChipsetFailure: public std::exception {
             public:

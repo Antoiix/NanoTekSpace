@@ -196,3 +196,8 @@ void nts::Shell::setOutputString(const std::string& output)
     this->outputString.clear();
     this->outputString = output;
 }
+
+bool nts::Shell::listEmpty() const
+{
+  return this->listInputs.empty() || this->listOutputs.empty();
+}

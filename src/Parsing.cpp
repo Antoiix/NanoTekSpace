@@ -55,5 +55,7 @@ nts::Shell manage_parsing(nts::Shell shell ,const std::string& file_name)
         }
         shell = chooseFunction(shell, actual, temp_word_array);
     }
+    if (shell.listEmpty())
+      throw InvalidFileInstruction();
     return shell;
 }
