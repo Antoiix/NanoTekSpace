@@ -24,10 +24,10 @@ nts::Tristate nts::ClockComponent::compute(std::size_t pin, Map &map)
         return Undefined;
       case True:
         this->_pins[1]->setState(False);
-        return this->_pins[1]->getState();
+        return True;
       case False:
         this->_pins[1]->setState(True);
-        return this->_pins[1]->getState();
+        return False;
     }
     return Undefined;
 }
