@@ -45,8 +45,7 @@ nts::Shell manage_parsing(nts::Shell shell ,const std::string& file_name)
         if (line.empty())
           continue;
         temp_word_array = Utils::myStrToWordArray(line, " \t");
-
-        if (temp_word_array.front().front() == '#')
+        if (temp_word_array.empty() || temp_word_array.front().front() == '#')
             continue;
         if (std::strcmp(temp_word_array.front().c_str(), ".chipsets:") == 0) {
             actual = CHIPSET;
