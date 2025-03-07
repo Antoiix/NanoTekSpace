@@ -3,8 +3,8 @@
 # qydgqysigdiqusdgodqgsdodqsdq-sdqsd-qd
 # qydgqysigdiqusdgodqgsdodqsdq-sdqsd-qd
 .chipsets:
-input a #toto
+input i #toto
 output o
 
-.links: #test
-o:1 i:1
+.links:
+o: i:

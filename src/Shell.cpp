@@ -162,10 +162,17 @@ void nts::Shell::addLink(const std::string& from, const std::string& to) const
     const std::list<std::string> fromWordArray = Utils::myStrToWordArray(from, ":");
     const std::list<std::string> toWordArray = Utils::myStrToWordArray(to, ":");
 
+    std::cout << fromWordArray.front() << std::endl;
+    std::cout << fromWordArray.back() << std::endl;
+    std::cout << toWordArray.front() << std::endl;
+    std::cout << toWordArray.back() << std::endl;
     if (this->components_map.isEmpty())
         throw NoChipsetFailure();
     if (getComponent(fromWordArray.front()) == nullptr || getComponent(toWordArray.front()) == nullptr)
         throw ComponentDontExist();
+    if (fromWordArray.front().empty() || toWordArray.front().empty() ||
+        fromWordArray.back().empty() || toWordArray.back().empty())
+        throw NoChipsetFailure();
     this->getComponent(fromWordArray.front())->setLink(std::stoi(fromWordArray.back()),toWordArray.front(), std::stoi(toWordArray.back()));
     int i = 1;
     i = i;
