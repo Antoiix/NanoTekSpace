@@ -1,10 +1,8 @@
-# sqdbhqugdqidgduguigqsuidgqiduqgsduqsd
-#
-# qydgqysigdiqusdgodqgsdodqsdq-sdqsd-qd
-# qydgqysigdiqusdgodqgsdodqsdq-sdqsd-qd
-.chipsets:
-input i #toto
-output o
-
-.links:
-o: i:
+# Ceci est un fichier de test
+.chipsets: #comment
+input i# comment
+output o #comment
+ #comment
+.links:#comment
+o:1 i:1#             comment
+            #comment
