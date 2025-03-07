@@ -170,6 +170,9 @@ void nts::Shell::addLink(const std::string& from, const std::string& to) const
         fromWordArray.back() == fromWordArray.front() ||
         toWordArray.back() == toWordArray.front())
         throw InvalidFileInstruction();
+    if (this->getComponent(fromWordArray.front())->hasPin(std::stoi(fromWordArray.back())) == false ||
+        this->getComponent(toWordArray.front())->hasPin(std::stoi(toWordArray.back())) == false)
+        throw InvalidFileInstruction();
     this->getComponent(fromWordArray.front())->setLink(std::stoi(fromWordArray.back()),toWordArray.front(), std::stoi(toWordArray.back()));
     int i = 1;
     i = i;
