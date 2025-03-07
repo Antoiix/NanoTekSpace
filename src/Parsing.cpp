@@ -11,7 +11,7 @@ nts::Shell chooseFunction(nts::Shell shell, TYPE actual, const std::list<std::st
 {
     if (word_array.size() == 2 && actual != NOTHING) {
         if (actual == LINKS)
-            shell.addLink(word_array.front(), word_array.back());
+            shell.addLink(word_array.back(), word_array.front());
         if (actual == CHIPSET)
         {
             for (auto word : word_array)
