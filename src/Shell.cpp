@@ -23,7 +23,7 @@ bool nts::Shell::inputIsValid(const std::string& buffer) const
         buffer.find('=') == buffer.rfind('=') &&
         this->getComponent(word_array.front()) != nullptr &&
         (atoi(word_array.back().c_str()) == 0 || atoi(word_array.back().c_str()) == 1 || (word_array.back() == "U")) &&
-        onlyDigit(word_array.back()))
+        onlyDigitUndefined(word_array.back()))
     {
         if (word_array.back() == "U")
         {
@@ -187,6 +187,14 @@ bool nts::Shell::onlyDigit(const std::string& string) const
 {
   for (auto c: string)
       if (c < '0' || c > '9')
+          return false;
+  return true;
+}
+
+bool nts::Shell::onlyDigitUndefined(const std::string& string) const
+{
+  for (auto c: string)
+      if (c != 'U' && (c < '0' || c > '9'))
           return false;
   return true;
 }
