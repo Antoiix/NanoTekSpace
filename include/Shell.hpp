@@ -34,6 +34,9 @@ namespace nts {
         void setOutputString(const std::string &output);
         std::string getOutputString() const;
         bool inputIsValid(const std::string& buffer) const;
+        bool listEmpty() const;
+        bool onlyDigit(const std::string& firstString) const;
+
 
         class NoChipsetFailure: public std::exception {
             public:
@@ -47,7 +50,12 @@ namespace nts {
                 return "Component dont exist";
             }
         };
-
+        class InvalidFileInstruction : public std::exception {
+        public:
+            const char *what() const noexcept override {
+                return "Invalid instruction in file";
+            }
+        };
     private:
         std::string outputString;
         std::list<std::string> listInputs;

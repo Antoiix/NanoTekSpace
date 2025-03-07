@@ -22,7 +22,8 @@ bool nts::Shell::inputIsValid(const std::string& buffer) const
         word_array.size() == 2 &&
         buffer.find('=') == buffer.rfind('=') &&
         this->getComponent(word_array.front()) != nullptr &&
-        (atoi(word_array.back().c_str()) == 0 || atoi(word_array.back().c_str()) == 1 || (word_array.back() == "U")))
+        (atoi(word_array.back().c_str()) == 0 || atoi(word_array.back().c_str()) == 1 || (word_array.back() == "U")) &&
+        onlyDigit(word_array.back()))
     {
         if (word_array.back() == "U")
         {
@@ -50,7 +51,7 @@ void nts::Shell::getExecutionCommands()
         auto tmpInput = this->components_map.getComponent(currentInput);
         if (tmpInput == nullptr)
             continue;
-        firstSs << "\t" << currentInput << ": " << tmpInput->getPinState(1) << std::endl;
+        firstSs << "  " << currentInput << ": " << tmpInput->getPinState(1) << std::endl;
     }
     firstSs << "output(s):" << std::endl;
     for (const auto& currentOutput : this->listOutputs)
@@ -58,7 +59,7 @@ void nts::Shell::getExecutionCommands()
         auto tmpOutput = this->components_map.getComponent(currentOutput);
         if (tmpOutput == nullptr)
             continue;
-        firstSs << "\t" << currentOutput << ": " << tmpOutput->compute(1, this->components_map) << std::endl;
+        firstSs << "  " << currentOutput << ": " << tmpOutput->compute(1, this->components_map) << std::endl;
     }
     this->setOutputString(firstSs.str());
 
@@ -80,7 +81,7 @@ void nts::Shell::getExecutionCommands()
                 auto tmpInput = this->components_map.getComponent(currentInput);
                 if (tmpInput == nullptr)
                     continue;
-                ss << "\t" << currentInput << ": " << tmpInput->getPinState(1) << std::endl;
+                ss << "  " << currentInput << ": " << tmpInput->getPinState(1) << std::endl;
             }
             ss << "output(s):" << std::endl;
             for (const auto& currentOutput : this->listOutputs)
@@ -88,7 +89,7 @@ void nts::Shell::getExecutionCommands()
                 auto tmpOutput = this->components_map.getComponent(currentOutput);
                 if (tmpOutput == nullptr)
                     continue;
-                ss << "\t" << currentOutput << ": " << tmpOutput->compute(1, this->components_map) << std::endl;
+                ss << "  " << currentOutput << ": " << tmpOutput->compute(1, this->components_map) << std::endl;
             }
             for (const auto& currentLogger : this->listLogger)
             {
@@ -114,7 +115,7 @@ void nts::Shell::getExecutionCommands()
                     auto tmpInput = this->components_map.getComponent(currentInput);
                     if (tmpInput == nullptr)
                         continue;
-                    ss << "\t" << currentInput << ": " << tmpInput->getPinState(1) << std::endl;
+                    ss << "  " << currentInput << ": " << tmpInput->getPinState(1) << std::endl;
                 }
                 ss << "output(s):" << std::endl;
                 for (const auto& currentOutput : this->listOutputs)
@@ -122,7 +123,7 @@ void nts::Shell::getExecutionCommands()
                     auto tmpOutput = this->components_map.getComponent(currentOutput);
                     if (tmpOutput == nullptr)
                         continue;
-                    ss << "\t" << currentOutput << ": " << tmpOutput->compute(1, this->components_map) << std::endl;
+                    ss << "  " << currentOutput << ": " << tmpOutput->compute(1, this->components_map) << std::endl;
                 }
                 for (const auto& currentLogger : this->listLogger)
                 {
@@ -164,11 +165,30 @@ void nts::Shell::addLink(const std::string& from, const std::string& to) const
 
     if (this->components_map.isEmpty())
         throw NoChipsetFailure();
+    if (fromWordArray.empty() || toWordArray.empty())
+        throw InvalidFileInstruction();
+    if (fromWordArray.front().empty() || toWordArray.front().empty() ||
+        fromWordArray.back() == fromWordArray.front() ||
+        toWordArray.back() == toWordArray.front())
+        throw InvalidFileInstruction();
     if (getComponent(fromWordArray.front()) == nullptr || getComponent(toWordArray.front()) == nullptr)
         throw ComponentDontExist();
+    if (onlyDigit(fromWordArray.back()) == false || onlyDigit(toWordArray.back()) == false)
+        throw InvalidFileInstruction();
+    if (this->getComponent(fromWordArray.front())->hasPin(std::stoi(fromWordArray.back())) == false ||
+        this->getComponent(toWordArray.front())->hasPin(std::stoi(toWordArray.back())) == false)
+        throw InvalidFileInstruction();
     this->getComponent(fromWordArray.front())->setLink(std::stoi(fromWordArray.back()),toWordArray.front(), std::stoi(toWordArray.back()));
     int i = 1;
     i = i;
+}
+
+bool nts::Shell::onlyDigit(const std::string& string) const
+{
+  for (auto c: string)
+      if (c < '0' || c > '9')
+          return false;
+  return true;
 }
 
 void nts::Shell::addInput(const std::string& input)
@@ -195,4 +215,9 @@ void nts::Shell::setOutputString(const std::string& output)
 {
     this->outputString.clear();
     this->outputString = output;
+}
+
+bool nts::Shell::listEmpty() const
+{
+  return this->listInputs.empty() || this->listOutputs.empty();
 }

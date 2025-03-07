@@ -17,6 +17,7 @@ namespace nts
 
         nts::Tristate compute(std::size_t pin, Map &map) override;
         void changePinState(std::size_t pin, Tristate newState) override;
+        Tristate getPinState(std::size_t pin) override;
     };
 } // nts
 

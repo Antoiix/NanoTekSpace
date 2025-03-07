@@ -14,6 +14,9 @@ nts::Shell chooseFunction(nts::Shell shell, TYPE actual, const std::list<std::st
             shell.addLink(word_array.front(), word_array.back());
         if (actual == CHIPSET)
         {
+            for (auto word : word_array)
+                if (word.find(':') != std::string::npos)
+                    throw InvalidFileInstruction();
             if (shell.getComponent(word_array.back()) != nullptr)
                 throw NameAlreadyUsed();
             shell.addComponent(word_array.back(), word_array.front());
@@ -42,8 +45,7 @@ nts::Shell manage_parsing(nts::Shell shell ,const std::string& file_name)
         if (line.empty())
           continue;
         temp_word_array = Utils::myStrToWordArray(line, " \t");
-
-        if (temp_word_array.front().front() == '#')
+        if (temp_word_array.empty() || temp_word_array.front().front() == '#')
             continue;
         if (std::strcmp(temp_word_array.front().c_str(), ".chipsets:") == 0) {
             actual = CHIPSET;
@@ -55,5 +57,7 @@ nts::Shell manage_parsing(nts::Shell shell ,const std::string& file_name)
         }
         shell = chooseFunction(shell, actual, temp_word_array);
     }
+    if (shell.listEmpty())
+      throw InvalidFileInstruction();
     return shell;
 }

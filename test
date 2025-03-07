@@ -1,10 +1,23 @@
-# sqdbhqugdqidgduguigqsuidgqiduqgsduqsd
-#
-# qydgqysigdiqusdgodqgsdodqsdq-sdqsd-qd
-# qydgqysigdiqusdgodqgsdodqsdq-sdqsd-qd
-.chipsets:
-input a #toto
-output o
-
-.links: #test
-o:1 i:1
+# Ceci est un fichier de test
+.chipsets: #comment
+input i# comment
+output o #comment
+clock cl
+output ol
+logger lg
+input toto# comment
+ #comment
+.links:#comment
+o:1 i:1#             comment
+            #comment
+ol:1 cl:1
+lg:1 i:1
+lg:2 i:1
+lg:3 i:1
+lg:4 i:1
+lg:5 i:1
+lg:6 i:1
+lg:7 i:1
+lg:8 i:1
+lg:9 cl:1
+lg:10 toto:1

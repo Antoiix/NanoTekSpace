@@ -50,6 +50,12 @@ nts::Tristate nts::AComponent::getPinState(std::size_t pin)
     return Tristate::Undefined;
 }
 
+bool nts::AComponent::hasPin(std::size_t pin)
+{
+    auto size = _pins.size();
+    return size >= pin && pin != 0;
+}
+
 std::ostream& operator<<(std::ostream& os, nts::Tristate v)
 {
     if (v == nts::Tristate::True)
