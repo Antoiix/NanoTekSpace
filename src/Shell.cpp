@@ -22,7 +22,8 @@ bool nts::Shell::inputIsValid(const std::string& buffer) const
         word_array.size() == 2 &&
         buffer.find('=') == buffer.rfind('=') &&
         this->getComponent(word_array.front()) != nullptr &&
-        (atoi(word_array.back().c_str()) == 0 || atoi(word_array.back().c_str()) == 1 || (word_array.back() == "U")))
+        (atoi(word_array.back().c_str()) == 0 || atoi(word_array.back().c_str()) == 1 || (word_array.back() == "U")) &&
+        onlyDigit(word_array.back()))
     {
         if (word_array.back() == "U")
         {
@@ -172,7 +173,7 @@ void nts::Shell::addLink(const std::string& from, const std::string& to) const
         throw InvalidFileInstruction();
     if (getComponent(fromWordArray.front()) == nullptr || getComponent(toWordArray.front()) == nullptr)
         throw ComponentDontExist();
-    if (onlyDigit(fromWordArray.back(), toWordArray.back()) == false)
+    if (onlyDigit(fromWordArray.back()) == false || onlyDigit(toWordArray.back()) == false)
         throw InvalidFileInstruction();
     if (this->getComponent(fromWordArray.front())->hasPin(std::stoi(fromWordArray.back())) == false ||
         this->getComponent(toWordArray.front())->hasPin(std::stoi(toWordArray.back())) == false)
@@ -182,12 +183,9 @@ void nts::Shell::addLink(const std::string& from, const std::string& to) const
     i = i;
 }
 
-bool nts::Shell::onlyDigit(const std::string& firstString, const std::string& secondString) const
+bool nts::Shell::onlyDigit(const std::string& string) const
 {
-  for (auto c: firstString)
-      if (c < '0' || c > '9')
-          return false;
-  for (auto c: secondString)
+  for (auto c: string)
       if (c < '0' || c > '9')
           return false;
   return true;

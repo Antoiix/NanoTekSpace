@@ -35,7 +35,7 @@ namespace nts {
         std::string getOutputString() const;
         bool inputIsValid(const std::string& buffer) const;
         bool listEmpty() const;
-        bool onlyDigit(const std::string& firstString, const std::string& secondString) const;
+        bool onlyDigit(const std::string& firstString) const;
 
 
         class NoChipsetFailure: public std::exception {
