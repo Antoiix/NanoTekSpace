@@ -164,11 +164,15 @@ void nts::Shell::addLink(const std::string& from, const std::string& to) const
 
     if (this->components_map.isEmpty())
         throw NoChipsetFailure();
-    if (getComponent(fromWordArray.front()) == nullptr || getComponent(toWordArray.front()) == nullptr)
-        throw ComponentDontExist();
+    if (fromWordArray.empty() || toWordArray.empty())
+        throw InvalidFileInstruction();
     if (fromWordArray.front().empty() || toWordArray.front().empty() ||
         fromWordArray.back() == fromWordArray.front() ||
         toWordArray.back() == toWordArray.front())
+        throw InvalidFileInstruction();
+    if (getComponent(fromWordArray.front()) == nullptr || getComponent(toWordArray.front()) == nullptr)
+        throw ComponentDontExist();
+    if (onlyDigit(fromWordArray.back(), toWordArray.back()) == false)
         throw InvalidFileInstruction();
     if (this->getComponent(fromWordArray.front())->hasPin(std::stoi(fromWordArray.back())) == false ||
         this->getComponent(toWordArray.front())->hasPin(std::stoi(toWordArray.back())) == false)
@@ -176,6 +180,17 @@ void nts::Shell::addLink(const std::string& from, const std::string& to) const
     this->getComponent(fromWordArray.front())->setLink(std::stoi(fromWordArray.back()),toWordArray.front(), std::stoi(toWordArray.back()));
     int i = 1;
     i = i;
+}
+
+bool nts::Shell::onlyDigit(const std::string& firstString, const std::string& secondString) const
+{
+  for (auto c: firstString)
+      if (c < '0' || c > '9')
+          return false;
+  for (auto c: secondString)
+      if (c < '0' || c > '9')
+          return false;
+  return true;
 }
 
 void nts::Shell::addInput(const std::string& input)
