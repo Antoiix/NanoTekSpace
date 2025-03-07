@@ -14,6 +14,9 @@ nts::Shell chooseFunction(nts::Shell shell, TYPE actual, const std::list<std::st
             shell.addLink(word_array.front(), word_array.back());
         if (actual == CHIPSET)
         {
+            for (auto word : word_array)
+                if (word.find(':') != std::string::npos)
+                    throw InvalidFileInstruction();
             if (shell.getComponent(word_array.back()) != nullptr)
                 throw NameAlreadyUsed();
             shell.addComponent(word_array.back(), word_array.front());
