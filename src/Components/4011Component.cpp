@@ -14,11 +14,11 @@ nts::C4011Component::C4011Component(const std::string& name) : AComponent(14, na
 
 static nts::Tristate nandGate(nts::Tristate pin1, nts::Tristate pin2)
 {
-    if (pin1 == nts::Undefined || pin2 == nts::Undefined)
-        return nts::Undefined;
     if (pin1 == nts::True && pin2 == nts::True)
         return nts::False;
-    return nts::True;
+    if (pin1 == nts::False || pin2 == nts::False)
+        return nts::True;
+    return nts::Undefined;
 }
 
 nts::Tristate nts::C4011Component::compute(std::size_t pin, Map& map)

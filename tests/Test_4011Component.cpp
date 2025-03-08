@@ -75,7 +75,7 @@ Test(C4011Component, test_true_false_gate1)
 
 Test(C4011Component, test_false_undefined_gate1)
 {
-    TestUtils util("tests/UndefinedTristate.txt");
+    TestUtils util("tests/TrueTristate.txt");
 
     nts::Shell shell;
 
@@ -216,7 +216,7 @@ Test(C4011Component, test_true_false_gate2)
 
 Test(C4011Component, test_false_undefined_gate2)
 {
-    TestUtils util("tests/UndefinedTristate.txt");
+    TestUtils util("tests/TrueTristate.txt");
 
     nts::Shell shell;
 
@@ -357,7 +357,7 @@ Test(C4011Component, test_true_false_gate3)
 
 Test(C4011Component, test_false_undefined_gate3)
 {
-    TestUtils util("tests/UndefinedTristate.txt");
+    TestUtils util("tests/TrueTristate.txt");
 
     nts::Shell shell;
 
@@ -498,7 +498,7 @@ Test(C4011Component, test_true_false_gate4)
 
 Test(C4011Component, test_false_undefined_gate4)
 {
-    TestUtils util("tests/UndefinedTristate.txt");
+    TestUtils util("tests/TrueTristate.txt");
 
     nts::Shell shell;
 
