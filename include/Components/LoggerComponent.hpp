@@ -14,7 +14,7 @@ namespace nts
 {
     class LoggerComponent : public AComponent
     {
-      public:
+    public:
         explicit LoggerComponent(std::string name);
 
         nts::Tristate compute(std::size_t pin, Map& map) override;

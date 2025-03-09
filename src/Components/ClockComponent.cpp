@@ -46,14 +46,14 @@ void nts::ClockComponent::changePinState(std::size_t pin, Tristate newState)
     if (tmpPin != nullptr)
         switch (newState) {
             case True:
-              tmpPin->setState(False);
-              break;
+                tmpPin->setState(False);
+                break;
             case False:
-              tmpPin->setState(True);
-              break;
+                tmpPin->setState(True);
+                break;
             default:
-              tmpPin->setState(Undefined);
-              break;
+                tmpPin->setState(Undefined);
+                break;
         }
 }
 
