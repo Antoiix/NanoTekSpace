@@ -73,6 +73,7 @@ TESTSRC =	tests/Utils/TestUtils.cpp			\
             src/Components/XorComponent.cpp		\
             src/Components/4030Component.cpp	\
             src/Components/4001Component.cpp	\
+            src/Components/4008Component.cpp	\
             src/Components/4071Component.cpp	\
             src/Components/4081Component.cpp	\
             src/Components/4011Component.cpp	\
