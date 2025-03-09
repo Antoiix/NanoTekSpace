@@ -1,23 +1,33 @@
-# Ceci est un fichier de test
-.chipsets: #comment
-input i# comment
-output o #comment
-clock cl
-output ol
-logger lg
-input toto# comment
- #comment
-.links:#comment
-o:1 i:1#             comment
-            #comment
-ol:1 cl:1
-lg:1 i:1
-lg:2 i:1
-lg:3 i:1
-lg:4 i:1
-lg:5 i:1
-lg:6 i:1
-lg:7 i:1
-lg:8 i:1
-lg:9 cl:1
-lg:10 toto:1
+.chipsets:
+input i1 
+input i2 
+input i3 
+input i4 
+input i5 
+input i6 
+input i7 
+input i8 
+input i9 
+output o1 
+output o2 
+output o3 
+output o4 
+output o5 
+4008 component
+
+.links:
+            
+i1:1 component:15
+i2:1 component:1
+i3:1 component:2
+i4:1 component:3
+i5:1 component:4
+i6:1 component:5
+i7:1 component:6
+i8:1 component:7
+i9:1 component:9
+component:14 o1:1
+component:13 o2:1
+component:12 o3:1
+component:11 o4:1
+component:10 o5:1
