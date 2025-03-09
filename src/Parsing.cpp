@@ -45,7 +45,7 @@ nts::Shell manage_parsing(nts::Shell shell ,const std::string& file_name)
     for (auto line: line_array) {
         line = Utils::removeComment(line);
         if (line.empty())
-          continue;
+            continue;
         temp_word_array = Utils::myStrToWordArray(line, " \t");
         if (temp_word_array.empty() || temp_word_array.front().front() == '#')
             continue;
@@ -60,6 +60,6 @@ nts::Shell manage_parsing(nts::Shell shell ,const std::string& file_name)
         shell = chooseFunction(shell, actual, temp_word_array);
     }
     if (shell.listEmpty())
-      throw InvalidFileInstruction();
+        throw InvalidFileInstruction();
     return shell;
 }
