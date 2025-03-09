@@ -28,6 +28,7 @@ SRC =	src/main.cpp						\
         src/Components/ClockComponent.cpp	\
         src/Components/4030Component.cpp	\
         src/Components/4001Component.cpp	\
+        src/Components/4008Component.cpp	\
         src/Components/4071Component.cpp	\
         src/Components/4081Component.cpp	\
         src/Components/4011Component.cpp	\
@@ -43,6 +44,7 @@ TESTSRC =	tests/Utils/TestUtils.cpp			\
             tests/Test_AndComponent.cpp			\
             tests/Test_NotComponent.cpp			\
             tests/Test_4001Component.cpp		\
+            tests/Test_4008Component.cpp		\
             tests/Test_4011Component.cpp		\
             tests/Test_4030Component.cpp		\
             tests/Test_4069Component.cpp		\

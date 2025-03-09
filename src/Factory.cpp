@@ -11,16 +11,17 @@
 
 #include <LoggerComponent.hpp>
 
-#include "4081Component.hpp"
-#include "4071Component.hpp"
 #include "4001Component.hpp"
+#include "4008Component.hpp"
 #include "4011Component.hpp"
+#include "4030Component.hpp"
+#include "4071Component.hpp"
 #include "4069Component.hpp"
+#include "4081Component.hpp"
 #include "AndComponent.hpp"
 #include "FalseComponent.hpp"
 #include "InputComponent.hpp"
 #include "NotComponent.hpp"
-#include "4030Component.hpp"
 #include "OrComponent.hpp"
 #include "OutputComponent.hpp"
 #include "TrueComponent.hpp"
@@ -39,6 +40,7 @@ nts::Factory::Factory()
     componentBuilders["true"] = [](const std::string& name) {return std::make_shared<TrueComponent>(name);};
     componentBuilders["false"] = [](const std::string& name) {return std::make_shared<FalseComponent>(name);};
     componentBuilders["4001"] = [](const std::string& name) {return std::make_shared<C4001Component>(name);};
+    componentBuilders["4008"] = [](const std::string& name) {return std::make_shared<C4008Component>(name);};
     componentBuilders["4011"] = [](const std::string& name) {return std::make_shared<C4011Component>(name);};
     componentBuilders["4030"] = [](const std::string& name) {return std::make_shared<C4030Component>(name);};
     componentBuilders["4069"] = [](const std::string& name) {return std::make_shared<C4069Component>(name);};
