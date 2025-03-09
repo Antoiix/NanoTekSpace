@@ -38,9 +38,9 @@ nts::Tristate nts::AndComponent::compute(std::size_t pin, Map &map)
     Tristate pin1 = this->_pins[1]->getState();
     Tristate pin2 = this->_pins[2]->getState();
 
-    if (pin1 == Undefined || pin2 == Undefined)
-        return Undefined;
     if (pin1 == True && pin2 == True)
         return True;
-    return False;
+    if (pin1 == False || pin2 == False)
+        return False;
+    return Undefined;
 }

@@ -75,7 +75,7 @@ Test(andComponent, test_true_false)
 
 Test(andComponent, test_false_undefined)
 {
-    TestUtils util("tests/UndefinedTristate.txt");
+    TestUtils util("tests/FalseTristate.txt");
 
     nts::Shell shell;
 
